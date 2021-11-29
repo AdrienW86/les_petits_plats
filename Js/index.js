@@ -1,3 +1,9 @@
-import { recipes } from "../datas"
+import {recipes} from "../recipes.js"
+import Recipe from "./class-recipes.js"
 
-console.log( recipes)
+console.table(recipes)
+
+recipes.forEach(recette => {
+    const listOfRecipes = new Recipe(recette)
+    listOfRecipes.buildRecipe()
+})

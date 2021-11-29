@@ -1,0 +1,81 @@
+body {
+    box-sizing: border-box;
+    
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* Card */
+
+.fiche_recette {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    height: 364px;
+    width: 380px;
+    margin: 10px; 
+    border-radius: 5px;
+}
+/* Header */
+.header_recette {
+    width: 380px;
+    height: 178px;
+    background-color: rgba(199, 190, 190, 1);
+}
+/* Body */
+section {
+    display: flex;
+    height: 186px;
+    overflow: hidden;
+}
+.box-title {
+    display: flex;
+}
+.body_recette {
+    background: rgba(231, 231, 231, 1);   
+}
+.title {
+    width: 304px;
+    height: 22px;
+    font-size: 18px;
+    display: flex;
+    padding-left: 20px;
+}
+.time {
+    font-size: 18px;
+    font-weight: bold;
+    width: 76px;  
+    position: relative;
+    bottom: 3px;
+    padding-left: 10px;
+}
+.liste_ingredients {
+   list-style: none;
+   width: 171px;
+   height: 185px;
+   padding: 0;
+   margin: 0;
+   padding-left: 10px;   
+}
+.ul-container, .description-container {
+  display: flex;
+  width: 190px;
+  height: 1175px;
+  padding-left: 10px;
+  
+}
+.bloc-recette {
+    padding-right: 5px;
+    width: 171px;
+    height: 175px;
+    font-size: 12px;
+    padding-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 12;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
