@@ -11,16 +11,16 @@ export default class Listbox {
       let listbox = document.createElement("select")
       listbox.setAttribute("class", "listbox-ingredients")
       section.appendChild(listbox)
- //  listbox.innerHTML =   `<option> Ingrédients</option>
-                          //  <option> ${this.ingredients}</option>`
+      listbox.innerHTML =   `<option class="select-ingredients"> Ingrédients</option>`
 
     }
 
     appareilsFilter() {
-        let section = document.querySelector(".listbox-container")
+      let section = document.querySelector(".listbox-container")
       let listbox = document.createElement("select")
       listbox.setAttribute("class", "listbox-appareils")
       section.appendChild(listbox)
+      listbox.innerHTML =   `<option class="select-appareils"> Appareil</option>`
     }
 
     ustensilsFilter() {
@@ -28,5 +28,6 @@ export default class Listbox {
       let listbox = document.createElement("select")
       listbox.setAttribute("class", "listbox-ustensils")
       section.appendChild(listbox)
+      listbox.innerHTML =   `<option class="select-ustensils"> Ustensiles</option>`
     }
 }

@@ -2,6 +2,22 @@ import {recipes} from "../recipes.js"
 import Recipe from "./class-recipes.js"
 import Listbox from "./class-listbox.js"
 
+// Barre de recherche
+
+  document.querySelector(".search").addEventListener("keyup", function(e) {
+    let recherche = this.value.toLowerCase()
+    let documents = document.querySelectorAll(".fiche_recette")
+    Array.prototype.forEach.call(documents, function(document) {
+      if(document.innerHTML.toLowerCase().indexOf(recherche) > -1) {
+        document.style.display = "block"
+      }else {
+        document.style.display = "none"
+      }
+    })
+  })
+
+// Initialisation des différents tableaux
+
 const recettes = []
 const listIngredients = []
 
@@ -53,12 +69,7 @@ let uniqueAppareil = [...new Set( listAppareils)]
 console.table(uniqueAppareil)
 
 // Création des listbox 
-let listbox = document.querySelector("listbox-ingredients")
 
-uniqueIngredient.forEach(ingredient => {
- 
-
-})
 const listboxIngredients = new Listbox(recipes)
 listboxIngredients.ingredientsFilter()
 

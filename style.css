@@ -1,6 +1,6 @@
 body {
-    box-sizing: border-box;
-    
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;   
 }
 header {
     display: flex;
@@ -19,17 +19,20 @@ header {
     width: 100%;
 }
 h1 {
+    font-family: 'DM Sans', sans-serif;
     font-size: 36px;
+    font-weight: bold;
+    font-style: normal;
     margin-top: 0px;
     margin-bottom: 0px;
     color: rgba(208, 79, 79, 1);
 }
-
 #container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+/*Listbox*/
 .search-container {
     display: flex;
     justify-content: center;
@@ -50,6 +53,7 @@ input.search {
     padding-left: 20px;
     color: rgba(0, 0, 0, 1);
     opacity : 0.25;
+    font-size: 18px;
 }
 .search-icon {
     position: relative;
@@ -71,6 +75,9 @@ input.search {
     color: white;
     border-radius: 5px;
     border: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
 }
 .listbox-ingredients {
     background: rgba(50, 130, 247, 1)
@@ -81,13 +88,11 @@ input.search {
 .listbox-ustensils {
     background: rgba(237, 100, 84, 1);
 }
-
 /* Card */
-
 .fiche_recette {
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
+    border: none;
     height: 364px;
     width: 380px;
     margin: 20px; 
@@ -96,7 +101,7 @@ input.search {
 /* Header */
 .header_recette {
     width: 380px;
-    height: 178px;
+    height: 120px;
     background-color: rgba(199, 190, 190, 1);
 }
 /* Body */
@@ -129,27 +134,28 @@ section {
 .liste_ingredients {
    list-style: none;
    font-size: 12px;
+   font-weight: bold;
    width: 171px;
-   height: 185px;
+   height: 105px;
    padding: 0;
    margin: 0;
-   padding-left: 10px;   
+   padding: 10px 0 0 20px;   
 }
 .ul-container, .description-container {
   display: flex;
-  width: 190px;
-  height: 1175px;
-  padding-left: 10px;
-  
+ /* width: 190px;
+  padding-left: 10px; */
 }
 .bloc-recette {
-    padding-right: 5px;
+    font-family: 'Roboto', sans-serif;
+   
     width: 171px;
-    height: 175px;
+    height: 108px;
     font-size: 12px;   
     padding-bottom: 5px;
+    padding-top: 10px;
     display: -webkit-box;
-    -webkit-line-clamp: 12;
+    -webkit-line-clamp: 8;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis
