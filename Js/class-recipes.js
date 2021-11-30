@@ -35,7 +35,6 @@ export default class Recipe {
         divUl.appendChild(ul)
         divDescription.appendChild(description)
        
-
         card.setAttribute("class","fiche_recette")
         headercard.setAttribute("class", "header_recette")
         bodyCard.setAttribute("class", "body_recette")
@@ -44,7 +43,6 @@ export default class Recipe {
         divUl.setAttribute("class", "ul-container")
         divDescription.setAttribute("class", "description-container")
         ul.setAttribute("class", "liste_ingredients")
-
 
       //  headercard.innerHTML = // this.picture 
         title.innerHTML = `<h2 class="title"> ${this.name} </h2> 
@@ -56,7 +54,6 @@ export default class Recipe {
         
         const items = this.ingredients
         items.forEach(item => {
-            console.table(item.ingredient)
             const li = document.createElement("li")
             ul.appendChild(li)
             if(item.quantity && item.unit) {
