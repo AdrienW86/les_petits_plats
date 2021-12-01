@@ -141,7 +141,8 @@ section {
    list-style: none;
    font-size: 12px;
    font-weight: bold;
-   width: 171px;
+   line-height: 120%;
+   width: 169px;
    height: 105px;
    padding: 0;
    margin: 0;
@@ -154,9 +155,9 @@ section {
 }
 .bloc-recette {
     font-family: 'Roboto', sans-serif;
-   
+    line-height: 120%;
     width: 171px;
-    height: 128px;
+    height: 126px;
     font-size: 12px;   
     padding-bottom: 5px;
     padding-top: 10px;
@@ -164,5 +165,6 @@ section {
     -webkit-line-clamp: 9;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    white-space: wrap;
     text-overflow: ellipsis
 }
