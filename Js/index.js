@@ -41,10 +41,9 @@ recipes.forEach(recette => {
 
 recettes.forEach(element => {
   element.forEach(produit => {
-    listIngredients.push(produit.ingredient)     
+    listIngredients.push(produit.ingredient)  
   })
 })
-
 let uniqueIngredient = [...new Set( listIngredients)]
 console.table(uniqueIngredient)
 
@@ -78,3 +77,24 @@ listboxAppareils.appareilsFilter()
 
 const listboxUstensils = new Listbox(recipes)
 listboxUstensils.ustensilsFilter()
+
+let ustensilsTarget = document.querySelector(".listbox-ustensils")
+    uniqueUstensil.forEach(ustensil => {
+      let option = document.createElement("option")
+      ustensilsTarget.appendChild(option)
+      option.innerHTML = ustensil
+})
+
+let ingredientsTarget = document.querySelector(".listbox-ingredients")
+    uniqueIngredient.forEach(ingredient => {
+      let option = document.createElement("option")
+      ingredientsTarget.appendChild(option)
+      option.innerHTML = ingredient
+})
+
+let appareilTarget = document.querySelector(".listbox-appareils")
+    uniqueAppareil.forEach(appareil => {
+      let option = document.createElement("option")
+      appareilTarget.appendChild(option)
+      option.innerHTML = appareil
+})
