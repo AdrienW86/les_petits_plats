@@ -3,6 +3,7 @@ export default class Recipe {
         this.id = data.id
         this.name = data.name
         this.servings = data.servings
+        this.picture = data.picture
         this.ingredients = data.ingredients
         this.time = data.time
         this.description = data.description
@@ -15,6 +16,7 @@ export default class Recipe {
         const main = document.getElementById("container")
         const card = document.createElement("section")
         const headercard = document.createElement("div")
+        const picture = document.createElement("img")
         const bodyCard = document.createElement("div")
         const title = document.createElement("div")
         const cardContent = document.createElement("section")
@@ -26,7 +28,8 @@ export default class Recipe {
         const description = document.createElement("div")
         
         main.appendChild(card)
-        card.appendChild(headercard)       
+        card.appendChild(headercard) 
+        headercard.appendChild(picture)      
         card.appendChild(bodyCard)
         bodyCard.appendChild(title)
         bodyCard.appendChild(cardContent)
@@ -37,6 +40,8 @@ export default class Recipe {
        
         card.setAttribute("class","fiche_recette")
         headercard.setAttribute("class", "header_recette")
+        picture.setAttribute("class", "picture")
+        picture.setAttribute("alt", "photo de l'image")
         bodyCard.setAttribute("class", "body_recette")
         description.setAttribute("class", "bloc-recette" )
         title.setAttribute("class", "box-title")
@@ -44,7 +49,7 @@ export default class Recipe {
         divDescription.setAttribute("class", "description-container")
         ul.setAttribute("class", "liste_ingredients")
 
-      //  headercard.innerHTML = // this.picture 
+        picture.src =  "./images/" + this.picture 
         title.innerHTML = `<h2 class="title"> ${this.name} </h2> 
                             <p class= "time"> 
                                 <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

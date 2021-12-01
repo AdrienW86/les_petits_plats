@@ -78,12 +78,7 @@ listboxAppareils.appareilsFilter()
 const listboxUstensils = new Listbox(recipes)
 listboxUstensils.ustensilsFilter()
 
-let ustensilsTarget = document.querySelector(".listbox-ustensils")
-    uniqueUstensil.forEach(ustensil => {
-      let option = document.createElement("option")
-      ustensilsTarget.appendChild(option)
-      option.innerHTML = ustensil
-})
+/* Création des options */
 
 let ingredientsTarget = document.querySelector(".listbox-ingredients")
     uniqueIngredient.forEach(ingredient => {
@@ -97,4 +92,54 @@ let appareilTarget = document.querySelector(".listbox-appareils")
       let option = document.createElement("option")
       appareilTarget.appendChild(option)
       option.innerHTML = appareil
+})
+
+let ustensilsTarget = document.querySelector(".listbox-ustensils")
+    uniqueUstensil.forEach(ustensil => {
+      let option = document.createElement("option")
+      ustensilsTarget.appendChild(option)
+      option.innerHTML = ustensil
+})
+
+document.querySelector(".listbox-ingredients").addEventListener("click", function(e) {
+  let select = this.value.toLowerCase()
+  let params = document.querySelectorAll(".fiche_recette")
+  Array.prototype.forEach.call(params, function(param){
+    if(param.innerHTML.toLowerCase().indexOf(select) > -1) {
+      param.style.display = "block"
+    }else{
+      param.style.display = "none"
+    }
+  })
+})
+
+document.querySelector(".listbox-appareils").addEventListener("click", function(e) {
+  let select = this.value.toLowerCase()
+  let params = document.querySelectorAll(".fiche_recette")
+  Array.prototype.forEach.call(params, function(param){
+    if(param.innerHTML.toLowerCase().indexOf(select) > -1) {
+      param.style.display = "block"
+    }else{
+      param.style.display = "none"
+    }
+  })
+})
+
+document.querySelector(".listbox-ustensils").addEventListener("click", function(e) {
+  let option = document.querySelector(".select-ustensils")
+  console.log(option.innerHTML)
+  let select = this.value.toLowerCase()
+  let params = document.querySelectorAll(".fiche_recette")
+  console.log(params)
+  Array.prototype.forEach.call(params, function(param){
+    if( option.innerHTML === "Ustensiles") {
+      console.log(this.innerHTML)
+    }
+    else if(param.innerHTML.toLowerCase().indexOf(select) > -1) {
+      param.style.display = "block"
+      console.log(this.innerHTML)
+    }else{
+      param.style.display = "none"
+    }
+  })
 })
