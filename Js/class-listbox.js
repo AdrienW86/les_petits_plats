@@ -11,9 +11,7 @@ export default class Listbox {
       let listbox = document.createElement("select")
       listbox.setAttribute("class", "listbox-ingredients")
       section.appendChild(listbox)
-      listbox.innerHTML = `<option class ="select-ingredients"> Ingrédients </option> ` 
-                        
-
+      listbox.innerHTML = `<option class ="select-ingredients"> Ingrédients </option> `  
     }
 
     appareilsFilter() {
