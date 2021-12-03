@@ -11,7 +11,7 @@ export default class Listbox {
       section.innerHTML = `<div class ="listbox-ingredients"> 
                                 <div class="listbox-title"> Ingrédients </div>
                                 <div class="btn-container">
-                                  <button class="select-btn">                             
+                                  <button class="select-ingredient-btn">                             
                                     <svg class="arrow-down" width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z" fill="white"/>
                                     </svg>
@@ -28,7 +28,6 @@ export default class Listbox {
                               <section class ="ul-box"></section>
                           </div>`
     }
-
     appareilsFilter() {
       let section = document.querySelector(".listbox-container")
       let listbox = document.createElement("select")

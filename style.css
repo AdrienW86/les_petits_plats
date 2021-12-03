@@ -244,7 +244,7 @@ input.search::placeholder {
     width: 20px;
     background-color: rgba(50, 130, 247, 1); 
 }
-.select-btn {
+.select-ingredient-btn {
     background-color: rgba(50, 130, 247, 1);
     height: 16px;
     width: 16px;
@@ -266,30 +266,36 @@ input.search::placeholder {
     margin-right: 20px;
 }
 .tag-container {
-    display: none;
+    display: flex;
     height: 60px;
-    flex-flow: wrap;
+    flex-flow: wrap; 
+    width: 100%;
 }
 .tag-ingredient {
     background-color: rgba(50, 130, 247, 1);
-    margin-right: 4px;
-    margin-bottom: 4px;
+    margin-left: 16px;
     height: 28px;
     border-radius: 4px;
-    padding-bottom: 2px;
-    padding-left: 4px;  
-    font-size: 0.8em;
+    padding-right: 2px; 
+    padding-left: 2px; 
+    padding-top: 8px;
+    font-size: 14px;
     color: white;
+    text-align: center;
 }
-.btn-tag {
+.delete-tag {
+    background-image: url("./images/delete.svg") ;
+    position: relative;
+    margin-left: 5px;
     color: white;
     border: none;
+    width: 20px;
+    height: 20px;
     border-radius: 4px;
-    position: relative;
-    top: 5px;
+    bottom: 4px;
     background-color: rgba(50, 130, 247, 1);
 }
-.btn-tag:hover {
+.delete-tag:hover {
     cursor: pointer;
 }
 .btn-one-choice {
