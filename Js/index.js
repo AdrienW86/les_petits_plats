@@ -2,8 +2,11 @@ import {recipes} from "../recipes.js"
 import Recipe from "./class-recipes.js"
 import Listbox from "./class-listbox.js"
 
-// Barre de recherche
+const build = new Listbox
+      build.buildListbox()
 
+  // Barre de recherche                      
+  
   document.querySelector(".search").addEventListener("keyup", function(e) {
     let recherche = this.value.toLowerCase()
     let documents = document.querySelectorAll(".fiche_recette")
@@ -41,7 +44,6 @@ recipes.forEach(recette => {
 
 recettes.forEach(element => {
   element.forEach(produit => {
-
     listIngredients.push(produit.ingredient.charAt(0).toUpperCase() + produit.ingredient.substring(1).toLowerCase())  
   })
 })
@@ -54,9 +56,8 @@ ustensils.forEach(ustensil => {
       listUstensils.push(element)     
    })
  })
-
 let uniqueUstensil = [...new Set( listUstensils.sort())]
-//console.table(uniqueUstensil)
+console.table(uniqueUstensil)
 
 // On filtre les appareils 
 
@@ -67,39 +68,39 @@ appareils.forEach(appareil => {
 let uniqueAppareil = [...new Set( listAppareils.sort())]
 //console.table(uniqueAppareil)
 
+const data = []
+data.push(uniqueIngredient, uniqueAppareil, uniqueUstensil)
+console.log(data)
+
 // Création des listbox 
 
-const listboxIngredients = new Listbox(recipes)
+const listboxIngredients = new Listbox(uniqueIngredient, uniqueAppareil, uniqueUstensil)
 listboxIngredients.ingredientsFilter()
 
-const listboxAppareils = new Listbox(recipes)
+const listboxAppareils = new Listbox(uniqueIngredient, uniqueAppareil, uniqueUstensil)
 listboxAppareils.appareilsFilter()
 
-const listboxUstensils = new Listbox(recipes)
+const listboxUstensils = new Listbox(uniqueIngredient, uniqueAppareil, uniqueUstensil)
 listboxUstensils.ustensilsFilter()
 
 /* Création des options */
 
-let ingredientsTarget = document.querySelectorAll(".select-ingredient-btn")
-let listboxArray = document.querySelector(".listbox-array")
-let listboxForIngredients = document.querySelector(".listbox-ingredients")
+/* Ingrédients*/
 
-
-let closeBtn = document.querySelectorAll(".btn-close")
+let ingredientsTarget = document.querySelectorAll(".select-btn0")
+let listboxArray = document.querySelector(".array0")
+let listboxForIngredients = document.querySelector(".listbox0")
+let closeBtn = document.querySelectorAll(".btn-close0")
 closeBtn.forEach(btn => btn.addEventListener("click", closeArray))
 
-
-
 ingredientsTarget.forEach(btn =>btn.addEventListener("click", displayIngredients))
-
-
-let ulbox = document.querySelector(".ul-box")
-
-
+console.log(ingredientsTarget)
 
 // Ouverture de la listbox
 
-function displayIngredients() {
+function displayIngredients(e) {
+  console.log(e.target.parentNode.parentNode)
+  let ulbox = document.querySelector(".ul-box0")
   let ul = document.createElement("ul") 
   ul.setAttribute("class","list-li") 
   ulbox.appendChild(ul)  
@@ -117,33 +118,90 @@ function displayIngredients() {
       optionSelected.forEach(option => option.addEventListener("click", searchOption))
     })
   }
- 
+
+/*Appareils*/
+
+let appareilsTarget = document.querySelectorAll(".select-btn1")
+let listboxArray2 = document.querySelector(".array1")
+let listboxForAppareils = document.querySelector(".listbox1")
+let closeBtn2 = document.querySelectorAll(".btn-close1")
+
+closeBtn2.forEach(btn => btn.addEventListener("click", closeArray))
+appareilsTarget.forEach(btn => btn.addEventListener("click", displayAppareils))
+
+function displayAppareils(e) {
+  console.log(e.target.parentNode.parentNode)
+  let ulbox2 = document.querySelector(".ul-box1")
+  console.log(ulbox2)
+  let ul = document.createElement("ul")
+  ul.setAttribute("class", "list-li1")
+  ulbox2.appendChild(ul)
+    uniqueAppareil.forEach(appareil => {
+      let li = document.createElement("li")
+      li.setAttribute("class", "option2")
+      ul.appendChild(li)
+      let option = document.createElement("button")
+      option.setAttribute("class", "btn-one-choice2")
+      li.appendChild(option)
+      option.innerHTML = appareil
+      listboxForAppareils.style.display = "none"
+      listboxArray2.style.display = "block"
+      let optionSelected = document.querySelectorAll(".btn-one-choice2")
+      optionSelected.forEach(option => option.addEventListener("click", searchOption))
+    })
+}
+
 // Fermeture de la listbox  
 
-  function closeArray() {
-    listboxArray.style.display = "none"
-    listboxForIngredients.style.display = "flex"
+  function closeArray(e) {
+  listboxArray.style.display = "none"
+  console.log(e.target)
+  listboxForIngredients.style.display = "flex"
+  listboxArray2.style.display = "none"
+  console.log(e.target)
+  listboxForAppareils.style.display = "flex"
     let remove = document.querySelector(".list-li")
-    
-    remove.remove()
+        if(remove){
+          remove.remove()
+        }
   }
- 
+
 // Création d'un tag
 
 function searchOption (e) {
+  console.log(e.target.innerHTML)
+  console.log(uniqueAppareil)
   let optionContent = e.target.innerHTML
-  let domFix = document.querySelector(".tag-container")
-  domFix.style.display = "flex"
+  let tagContainer = document.querySelector(".tag-container")
+      tagContainer.style.display = "flex"
   let tag = document.createElement("div")
-  domFix.appendChild(tag)
-  tag.setAttribute("class", "tag-ingredient")
-  tag.innerHTML = optionContent
+      tagContainer.appendChild(tag)
+      tag.setAttribute("class", "tag")
+      for(let i = 0 ; i < uniqueIngredient.length ; i++) {
+        let test = uniqueIngredient[i]
+          if(test.includes(e.target.innerHTML)) {
+            tag.classList.add("tag-ingredient")
+          }
+      }
+      for(let i = 0; i < uniqueAppareil.length ; i++) {
+        let test = uniqueAppareil[i]
+          if(test.includes(e.target.innerHTML)) {
+            tag.classList.add("tag-appareil")
+          }
+      }
+      for(let i = 0; i < uniqueUstensil.length ; i++) {
+        let test = uniqueUstensil[i]
+          if(test.includes(e.target.innerHTML)) {
+            tag.classList.add("tag-appareil")
+          }
+      }
+      tag.innerHTML = optionContent
   let btn = document.createElement("button")
       btn.setAttribute("class","delete-tag")
-  tag.appendChild(btn)                                             
-    let closeBtnTag = document.querySelectorAll(".delete-tag")
-        closeBtnTag.forEach(tag => tag.addEventListener("click", closeTag))    
-        closeArray()             
+      tag.appendChild(btn)                                             
+  let closeBtnTag = document.querySelectorAll(".delete-tag")
+      closeBtnTag.forEach(tag => tag.addEventListener("click", closeTag))   
+      closeArray(e)              
 }
 
 // Suppression d'un tag
@@ -153,65 +211,3 @@ function closeTag(e) {
   console.log(tag)
   tag.remove()
 }
-
-
-
-
-
-
-    
-
-let ustensilsTarget = document.querySelector(".listbox-ustensils")
-    uniqueUstensil.forEach(ustensil => {
-      let option = document.createElement("option")
-      ustensilsTarget.appendChild(option)
-      option.innerHTML = ustensil
-})
-/*
-document.querySelector(".listbox-ingredients").addEventListener("click", function(e) {
-  let select = this.value.toLowerCase()
-  let params = document.querySelectorAll(".fiche_recette")
-  Array.prototype.forEach.call(params, function(param){
-    if(param.innerHTML.toLowerCase().indexOf(select) > -1) {
-      param.style.display = "block"
-    }else{
-      param.style.display = "none"
-    }
-  })
-})
-
-
-
-
-document.querySelector(".listbox-appareils").addEventListener("click", function(e) {
-  let select = this.value.toLowerCase()
-  let params = document.querySelectorAll(".fiche_recette")
-  Array.prototype.forEach.call(params, function(param){
-    if(param.innerHTML.toLowerCase().indexOf(select) > -1) {
-      param.style.display = "block"
-    }else{
-      param.style.display = "none"
-    }
-  })
-})
-
-document.querySelector(".listbox-ustensils").addEventListener("click", function(e) {
-  let option = document.querySelector(".select-ustensils")
-  console.log(option.innerHTML)
-  let select = this.value.toLowerCase()
-  let params = document.querySelectorAll(".fiche_recette")
-  console.log(params)
-  Array.prototype.forEach.call(params, function(param){
-    if( option.innerHTML === "Ustensiles") {
-      console.log(this.innerHTML)
-    }
-    else if(param.innerHTML.toLowerCase().indexOf(select) > -1) {
-      param.style.display = "block"
-      console.log(this.innerHTML)
-    }else{
-      param.style.display = "none"
-    }
-  })
-})
-
-*/

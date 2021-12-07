@@ -1,0 +1,77 @@
+// Bouttons d'ouverture de la liste
+
+.select-btn0, .select-btn1, .select-btn2 {
+    background-color: transparent;
+    height: 16px;
+    width: 22px;
+    border: none; 
+    position: relative;
+    right: 30px;
+    top: 27px;
+}
+
+.select-btn0:hover, .select-btn1:hover, .select-btn2:hover {
+    cursor: pointer;
+}
+
+// Boutons pour fermer la liste 
+
+.btn-close0, .btn-close1 {
+    display: flex;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 670px;
+    bottom: 20px;
+    height: 20px;
+    background-color: transparent;
+    background: url("../images/close-array.svg") no-repeat center;
+    border: none;
+    color: white;
+    z-index: 30
+}
+
+.btn-close1 {
+    position: relative;
+    left: 140px;
+
+}
+
+.btn-close0:hover, .btn-close1:hover {
+    cursor: pointer
+}
+
+// Boutons pour créer un tag
+
+.btn-one-choice, .btn-one-choice2 {
+    border: none;
+    background-color: transparent; 
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis   
+}
+.btn-one-choice:hover,.btn-one-choice2:hover  {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+// Boutons pour supprimer un tag
+
+.delete-tag {
+    background: url("../images/delete.svg") no-repeat center;
+    position: relative;
+    margin-left: 5px;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    bottom: 4px;
+}
+.delete-tag:hover, .btn-close:hover  {
+    cursor: pointer;
+}
+
+
+

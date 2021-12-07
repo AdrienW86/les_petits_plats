@@ -1,0 +1,128 @@
+/*Listbox*/
+
+.listbox-container {
+    width: 100%;
+    margin-left: 30px;
+    height: 100px;
+    display: flex;
+    justify-content: left;
+}
+.listbox0, .listbox1, .listbox2 {
+    display: flex;
+    height: 69px;
+    width: 170px;
+    margin-left: 15px;
+    padding-left: 15px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+.listbox-title {
+    width: 150px;
+    border: none;
+    padding-top: 25px;
+    padding-left: 10px;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 1);
+}
+input.find0 {
+    outline: none;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    width: 600px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.find0::placeholder {
+   color: rgba(255, 255, 255, 0.5);
+   opacity: 1;
+   font-weight: bold;
+   font-size: 18px;
+}
+
+input.find1 {
+    width: 130px;
+}
+
+.array0 {
+    display: none;
+    justify-content: center;
+    border-radius: 5px;
+    height: 850px;
+    width: 700px;
+    z-index: 1;    
+}
+
+.array1, .array2 {
+    display: none;
+    justify-content: center;
+    border-radius: 5px;
+    width: 170px;
+    margin-left: 15px;
+    height: 300px;
+    z-index: 1;
+}
+.ul-box0 {
+    position: absolute;
+    display: flex;
+    z-index: 20;
+    height: 850px;
+    width: 700px;
+    border-radius: 5px;
+}
+
+.ul-box1 {
+    position: absolute;
+    display: flex;
+    height: 300px;
+    width: 170px;
+    border-radius: 5px;
+}
+.list-li {
+    display: flex;
+    flex-flow: wrap;
+    height: 800px;
+    width: 700px;
+    width: 100%;
+    z-index: 20;
+}
+
+.arrow-up, .arrow-down {
+    border: none;
+    color: white;   
+}
+
+.option, .option2 {
+    display: flex;
+    color: rgb(255, 255, 255);
+    width: 180px;
+    z-index: 10;
+    margin-right: 20px;
+}
+.tag-container {
+    display: flex;
+    height: 60px;
+    flex-flow: wrap; 
+    width: 100%;
+}
+.tag {
+    background-color: transparent;
+    margin-left: 16px;
+    height: 28px;
+    border-radius: 4px;
+    padding-right: 2px; 
+    padding-left: 2px; 
+    padding-top: 8px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+}

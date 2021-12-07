@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Roboto' ;
+    src: url('../fonts/roboto-regular-webfont.woff') format('woff'),
+         url('../fonts/roboto-regular-webfont.woff2') format('woff2');
+         font-weight: normal;
+         font-style: normal;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;   
+}
+
+h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    font-style: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: $red
+}
+
+.listbox0, .find0, .tag.tag-ingredient, .array0, .ul-box0 {
+    background-color: $blue
+}
+.listbox1, .find1, .tag.tag-appareil, .array1, .ul-box1 {
+    background-color: $green;
+}
+.listbox2, .find2, .tag.tag-ustensil, .array2, .ul-box2{
+    background: $red;
+}

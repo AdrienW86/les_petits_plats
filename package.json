@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AdrienW86/les_petits_plats/issues"
   },
-  "homepage": "https://github.com/AdrienW86/les_petits_plats#readme"
+  "homepage": "https://github.com/AdrienW86/les_petits_plats#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.0"
+  }
 }
