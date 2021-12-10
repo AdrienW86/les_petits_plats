@@ -83,7 +83,7 @@ listboxAppareils.appareilsFilter()
 const listboxUstensils = new Listbox(uniqueIngredient, uniqueAppareil, uniqueUstensil)
 listboxUstensils.ustensilsFilter()
 
-/* Création des options */
+// Ouverture de la listbox
 
 /* Ingrédients*/
 
@@ -92,9 +92,7 @@ let listboxArray = document.querySelector(".array0")
 let listboxForIngredients = document.querySelector(".listbox0")
 let closeBtn = document.querySelectorAll(".btn-close0")
 closeBtn.forEach(btn => btn.addEventListener("click", closeArray))
-
 ingredientsTarget.forEach(btn =>btn.addEventListener("click", display))
-// Ouverture de la listbox
 
 /*Appareils*/
 
@@ -195,6 +193,7 @@ function display(e) {
 
 function searchOption (e) {
   let ArrayTextContent = []
+  let options = document.querySelectorAll(".btn-one-choice")
   let listFicheRecette = document.querySelectorAll(".fiche_recette")
   let optionContent = e.target.innerHTML
   let tagContainer = document.querySelector(".tag-container")
@@ -206,17 +205,11 @@ function searchOption (e) {
         let test = uniqueIngredient[i]
         //console.table(test)
        // console.log(e.target.innerHTML)
-          if(test.includes(e.target.innerHTML)) {
+          if(test == e.target.innerHTML) {
             tag.classList.add("tag-ingredient")
-            console.log(e.target.innerHTML)
-            console.log(test.includes(e.target.innerHTML))
-            console.log(listFicheRecette)
             listFicheRecette.forEach(recette => {
-
-              console.log(recette)
               recette.style.display = "none"
-              if(recette.textContent.toLowerCase().includes(e.target.innerHTML.toLowerCase())) {
-                console.log(recette.getAttribute("data-appliance"))
+              if(recette.textContent.toLowerCase().includes(optionContent.toLowerCase())) {
                 recette.style.display = "block"
               }
             })
@@ -224,28 +217,42 @@ function searchOption (e) {
       }
       for(let i = 0; i < uniqueAppareil.length ; i++) {
         let test = uniqueAppareil[i]
-          if(test.includes(e.target.innerHTML)) {
+          if(test == e.target.innerHTML) {
             tag.classList.add("tag-appareil")
-            console.log(e.target.innerHTML)
-            console.log(test)
             listFicheRecette.forEach(recette => {
+              let appliance = recette.getAttribute("data-appliance").toLocaleLowerCase()
               recette.style.display = "none"
-              if(recette.getAttribute("data-appliance").toLowerCase().includes(e.target.innerHTML.toLowerCase())) {
-    
+              if(appliance.includes(optionContent.toLowerCase())) {
                 recette.style.display = "block"
+                recette.classList.add("active")
+               
+                options.forEach(option => {
+                 
+               //   if(option.innerText == optionContent) {
+                //    option.style.display = "none"
+                   
+                //    console.log(option)
+              //    }else {
+               //     option.style.display = "none"
+               //   }
+                })
+                console.log(options)
+
+               // console.log(appliance)
               }
             })
           }
       }
       for(let i = 0; i < uniqueUstensil.length ; i++) {
         let test = uniqueUstensil[i]
+        console.log(e.target.innerHTML)
         console.log(uniqueUstensil[i])
-          if(test.includes(e.target.innerHTML)) {
+          if(test == e.target.innerHTML) {
             tag.classList.add("tag-ustensil")
             listFicheRecette.forEach(recette => {
               recette.style.display = "none"
               if(recette.getAttribute("data-ustensils").toLowerCase().includes(e.target.innerHTML.toLowerCase())) {
-                console.log(recette)
+                
                 recette.style.display = "block"
               }
             })
