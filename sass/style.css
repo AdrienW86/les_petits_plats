@@ -45,9 +45,8 @@ h1 {
   cursor: pointer;
 }
 
-.btn-close0, .btn-close1 {
+.btn-close0, .btn-close1, .btn-close2 {
   display: flex;
-  position: relative;
   width: 20px;
   height: 20px;
   left: 670px;
@@ -60,16 +59,16 @@ h1 {
   z-index: 30;
 }
 
-.btn-close1 {
+.btn-close1, .btn-close2 {
   position: relative;
-  left: 140px;
+  left: 260px;
 }
 
-.btn-close0:hover, .btn-close1:hover {
+.btn-close0:hover, .btn-close1:hover, .btn-close2:hover {
   cursor: pointer;
 }
 
-.btn-one-choice, .btn-one-choice2 {
+.btn-one-choice {
   border: none;
   background-color: transparent;
   color: white;
@@ -79,7 +78,7 @@ h1 {
   text-overflow: ellipsis;
 }
 
-.btn-one-choice:hover, .btn-one-choice2:hover {
+.btn-one-choice:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
@@ -131,7 +130,8 @@ h1 {
   color: white;
 }
 
-input.find0 {
+input.find0, input.find1, input.find2 {
+  display: flex;
   outline: none;
   color: white;
   font-weight: bold;
@@ -144,15 +144,16 @@ input.find0 {
   padding-top: 20px;
 }
 
-.find0::placeholder {
+.find0::placeholder, .find1::placeholder, .find2::placeholder {
   color: rgba(255, 255, 255, 0.5);
   opacity: 1;
   font-weight: bold;
   font-size: 18px;
 }
 
-input.find1 {
-  width: 130px;
+input.find1, input.find2 {
+  width: 300px;
+  display: flex;
 }
 
 .array0 {
@@ -168,9 +169,9 @@ input.find1 {
   display: none;
   justify-content: center;
   border-radius: 5px;
-  width: 170px;
+  width: 300px;
   margin-left: 15px;
-  height: 300px;
+  height: 750px;
   z-index: 1;
 }
 
@@ -183,11 +184,13 @@ input.find1 {
   border-radius: 5px;
 }
 
-.ul-box1 {
+.ul-box1, .ul-box2 {
   position: absolute;
   display: flex;
   height: 300px;
-  width: 170px;
+  width: 300px;
+  height: 750px;
+  z-index: 20;
   border-radius: 5px;
 }
 
@@ -195,9 +198,20 @@ input.find1 {
   display: flex;
   flex-flow: wrap;
   height: 800px;
-  width: 700px;
   width: 100%;
   z-index: 20;
+}
+
+.list-li2, .list-li3 {
+  display: flex;
+  flex-flow: wrap;
+  height: 550px;
+  width: 200px;
+  z-index: 20;
+}
+
+ul {
+  list-style: none;
 }
 
 .arrow-up, .arrow-down {
@@ -205,11 +219,11 @@ input.find1 {
   color: white;
 }
 
-.option, .option2 {
+.option {
   display: flex;
   color: white;
   width: 180px;
-  z-index: 10;
+  height: 20px;
   margin-right: 20px;
 }
 

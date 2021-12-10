@@ -20,7 +20,6 @@
     font-weight: bold;
     font-family: 'Lato', sans-serif;
 }
-
 .listbox-title {
     width: 150px;
     border: none;
@@ -29,7 +28,8 @@
     border-radius: 5px;
     color: rgba(255, 255, 255, 1);
 }
-input.find0 {
+input.find0, input.find1, input.find2 {
+    display: flex;
     outline: none;
     color: white;
     font-weight: bold;
@@ -42,17 +42,16 @@ input.find0 {
     padding-top: 20px;
 }
 
-.find0::placeholder {
+.find0::placeholder, .find1::placeholder, .find2::placeholder {
    color: rgba(255, 255, 255, 0.5);
    opacity: 1;
    font-weight: bold;
    font-size: 18px;
 }
-
-input.find1 {
-    width: 130px;
+input.find1, input.find2 {
+    width: 300px;
+    display: flex;
 }
-
 .array0 {
     display: none;
     justify-content: center;
@@ -61,51 +60,58 @@ input.find1 {
     width: 700px;
     z-index: 1;    
 }
-
 .array1, .array2 {
     display: none;
     justify-content: center;
     border-radius: 5px;
-    width: 170px;
+    width: 300px;
     margin-left: 15px;
-    height: 300px;
+    height: 750px;
     z-index: 1;
 }
 .ul-box0 {
-    position: absolute;
+   position: absolute;
     display: flex;
     z-index: 20;
     height: 850px;
     width: 700px;
     border-radius: 5px;
 }
-
-.ul-box1 {
+.ul-box1, .ul-box2 {
     position: absolute;
     display: flex;
     height: 300px;
-    width: 170px;
+    width: 300px;
+    height: 750px;
+    z-index: 20;
     border-radius: 5px;
 }
 .list-li {
     display: flex;
     flex-flow: wrap;
     height: 800px;
-    width: 700px;
     width: 100%;
     z-index: 20;
 }
-
+.list-li2, .list-li3 {
+    display: flex;
+    flex-flow: wrap;
+    height: 550px;
+    width: 200px;
+    z-index: 20;
+}
+ul {
+    list-style: none;
+}
 .arrow-up, .arrow-down {
     border: none;
     color: white;   
 }
-
-.option, .option2 {
+.option {
     display: flex;
     color: rgb(255, 255, 255);
     width: 180px;
-    z-index: 10;
+    height: 20px;
     margin-right: 20px;
 }
 .tag-container {

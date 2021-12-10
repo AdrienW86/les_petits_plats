@@ -39,6 +39,8 @@ export default class Recipe {
         divDescription.appendChild(description)
        
         card.setAttribute("class","fiche_recette")
+        card.setAttribute("data-appliance", this.appliance)
+        card.setAttribute("data-ustensils", this.ustensils)
         headercard.setAttribute("class", "header_recette")
         picture.setAttribute("class", "picture")
         picture.setAttribute("alt", "photo de l'image")

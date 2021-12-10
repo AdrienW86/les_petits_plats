@@ -16,9 +16,9 @@
 
 // Boutons pour fermer la liste 
 
-.btn-close0, .btn-close1 {
+.btn-close0, .btn-close1, .btn-close2 {
     display: flex;
-    position: relative;
+   
     width: 20px;
     height: 20px;
     left: 670px;
@@ -31,19 +31,18 @@
     z-index: 30
 }
 
-.btn-close1 {
+.btn-close1, .btn-close2 {
     position: relative;
-    left: 140px;
-
+    left: 260px;
 }
 
-.btn-close0:hover, .btn-close1:hover {
+.btn-close0:hover, .btn-close1:hover, .btn-close2:hover {
     cursor: pointer
 }
 
 // Boutons pour créer un tag
 
-.btn-one-choice, .btn-one-choice2 {
+.btn-one-choice {
     border: none;
     background-color: transparent; 
     color: white;
@@ -52,7 +51,7 @@
     white-space: nowrap;
     text-overflow: ellipsis   
 }
-.btn-one-choice:hover,.btn-one-choice2:hover  {
+.btn-one-choice:hover  {
     cursor: pointer;
     transform: scale(1.1);
 }
@@ -72,6 +71,3 @@
 .delete-tag:hover, .btn-close:hover  {
     cursor: pointer;
 }
-
-
-
