@@ -20,13 +20,18 @@ h1 {
     margin-bottom: 0px;
     color: $red
 }
-
-.listbox0, .find0, .tag.tag-ingredient, .array0, .ul-box0 {
+p {
+    display: inline-block;
+    position: relative;
+    bottom: 12px;
+    margin-right: 5px;
+}
+.listbox0, .find0, .tag-ingredient, .array0, .ul-box0 {
     background-color: $blue
 }
-.listbox1, .find1, .tag.tag-appareil, .array1, .ul-box1 {
+.listbox1, .find1, .tag-appareil, .array1, .ul-box1 {
     background-color: $green;
 }
-.listbox2, .find2, .tag.tag-ustensil, .array2, .ul-box2{
+.listbox2, .find2, .tag-ustensil, .array2, .ul-box2{
     background: $red;
 }

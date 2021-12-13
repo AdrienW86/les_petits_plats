@@ -1,47 +1,34 @@
 // Bouttons d'ouverture de la liste
-
 .select-btn0, .select-btn1, .select-btn2 {
     background-color: transparent;
+    background: url("/images/open.svg") no-repeat center;
+    
     height: 16px;
     width: 22px;
     border: none; 
     position: relative;
-    right: 30px;
-    top: 27px;
+    left: 40px;
+    top: 25px;
+    z-index: 2
 }
-
 .select-btn0:hover, .select-btn1:hover, .select-btn2:hover {
     cursor: pointer;
 }
-
 // Boutons pour fermer la liste 
-
-.btn-close0, .btn-close1, .btn-close2 {
+.btn-close {
     display: flex;
-   
+    position: relative;
+    top: 10px;
     width: 20px;
     height: 20px;
-    left: 670px;
-    bottom: 20px;
-    height: 20px;
-    background-color: transparent;
     background: url("../images/close-array.svg") no-repeat center;
     border: none;
-    color: white;
-    z-index: 30
+    z-index: 30;
+        &:hover {
+            cursor: pointer;
+        }
 }
-
-.btn-close1, .btn-close2 {
-    position: relative;
-    left: 260px;
-}
-
-.btn-close0:hover, .btn-close1:hover, .btn-close2:hover {
-    cursor: pointer
-}
-
 // Boutons pour créer un tag
-
 .btn-one-choice {
     border: none;
     background-color: transparent; 
@@ -49,25 +36,21 @@
     font-weight: bold;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis   
+    text-overflow: ellipsis;  
+        &:hover  {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
 }
-.btn-one-choice:hover  {
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
 // Boutons pour supprimer un tag
-
-.delete-tag {
-    background: url("../images/delete.svg") no-repeat center;
+.btn-close-tag {
+    display: flex;
+    width: 20px;
     position: relative;
-    margin-left: 5px;
+    bottom: 3px;
     border: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 4px;
-    bottom: 4px;
-}
-.delete-tag:hover, .btn-close:hover  {
-    cursor: pointer;
+    background: url("../images/delete.svg") no-repeat center;   
+        &:hover{
+            cursor: pointer
+        }  
 }
