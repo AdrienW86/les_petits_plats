@@ -3,7 +3,6 @@ header {
     flex-direction: column;
     align-items: center;
 }
-
 .logo-container {
     display: flex;
     width: 100%;
@@ -12,15 +11,17 @@ header {
     flex-direction: column;
     align-items: center;
 }
-
 .logo {
     width: 100%;
 }
-
+.tag-container {
+    margin-left: 10px;
+    margin-top: 10px;
+}
 #container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 /* Card */
@@ -41,7 +42,7 @@ header {
             -5px -27px 32px 1px rgba(0, 0, 0, 0.05);
         }
 }
-/* Header */
+/* Header card */
 .header_recette {
     width: 380px;
     height: 120px;
@@ -53,7 +54,7 @@ header {
     -o-object-fit: cover;
        object-fit: cover;
 }
-/* Body */
+/* Body card*/
 section {
     display: flex;
     height: 186px;
@@ -71,6 +72,13 @@ section {
     font-size: 18px;
     display: flex;
     padding-left: 20px;
+}
+.title0, .title1, .title2 {
+    padding-top: 20px;
+    height: 22px;
+    width: 95px;
+    font-size: 18px;
+    display: flex;   
 }
 .time {
     font-size: 18px;
@@ -108,6 +116,3 @@ section {
     overflow: hidden;
     text-overflow: ellipsis
 }
-
-
-

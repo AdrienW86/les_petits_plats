@@ -1,8 +1,7 @@
 /*Listbox*/
-
 .listbox-container {
     width: 100%;
-    margin-left: 30px;
+    margin-left: 10px;
     height: 100px;
     display: flex;
     justify-content: left;
@@ -21,10 +20,12 @@
     font-family: 'Lato', sans-serif;
 }
 .listbox-title {
-    width: 150px;
+    width: 100%;
     border: none;
-    padding-top: 25px;
-    padding-left: 10px;
+    justify-content: space-between;
+    height: 45px;
+    margin-right: 10px;
+    margin-top: 10px;
     border-radius: 5px;
     color: rgba(255, 255, 255, 1);
 }
@@ -34,14 +35,13 @@ input.find0, input.find1, input.find2 {
     color: white;
     font-weight: bold;
     font-size: 12px;
-    width: 600px;
+    width: 90%;
     height: 45px;
     border: none;
     border-radius: 5px;
     padding-left: 20px;
-    padding-top: 20px;
+    z-index: 100;
 }
-
 .find0::placeholder, .find1::placeholder, .find2::placeholder {
    color: rgba(255, 255, 255, 0.5);
    opacity: 1;
@@ -49,8 +49,9 @@ input.find0, input.find1, input.find2 {
    font-size: 18px;
 }
 input.find1, input.find2 {
-    width: 300px;
+    width: 90%;
     display: flex;
+    flex-direction: column;
 }
 .array0 {
     display: none;
@@ -58,6 +59,7 @@ input.find1, input.find2 {
     border-radius: 5px;
     height: 850px;
     width: 700px;
+    margin-left: 18px;
     z-index: 1;    
 }
 .array1, .array2 {
@@ -73,7 +75,7 @@ input.find1, input.find2 {
    position: absolute;
     display: flex;
     z-index: 20;
-    height: 850px;
+    height: 870px;
     width: 700px;
     border-radius: 5px;
 }
@@ -82,30 +84,30 @@ input.find1, input.find2 {
     display: flex;
     height: 300px;
     width: 300px;
-    height: 750px;
+    height: 570px;
     z-index: 20;
     border-radius: 5px;
 }
-.list-li {
+.list-li0 {
     display: flex;
+    flex-direction: column;
     flex-flow: wrap;
-    height: 800px;
+    margin-top: 10px;
+    height: 750px;
     width: 100%;
     z-index: 20;
 }
-.list-li2, .list-li3 {
+.list-li1, .list-li2 {
     display: flex;
     flex-flow: wrap;
-    height: 550px;
+    margin-top: 10px;
+    height: 450px;
     width: 200px;
     z-index: 20;
 }
 ul {
     list-style: none;
-}
-.arrow-up, .arrow-down {
-    border: none;
-    color: white;   
+    padding-top: 55px;
 }
 .option {
     display: flex;
@@ -120,8 +122,8 @@ ul {
     flex-flow: wrap; 
     width: 100%;
 }
-.tag {
-    background-color: transparent;
+.tag-ingredient, .tag-appareil, .tag-ustensil {
+    display: flex;
     margin-left: 16px;
     height: 28px;
     border-radius: 4px;
