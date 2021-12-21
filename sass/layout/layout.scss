@@ -1,7 +1,7 @@
 header {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;  
 }
 .logo-container {
     display: flex;
@@ -15,6 +15,8 @@ header {
     width: 100%;
 }
 .tag-container {
+    height: auto;
+    display: flex;
     margin-left: 10px;
     margin-top: 10px;
 }
@@ -22,6 +24,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    z-index: 1;
 }
 
 /* Card */
@@ -46,25 +49,24 @@ header {
 .header_recette {
     width: 380px;
     height: 120px;
+    border-radius: 5px 5px 0 0;
     background-color: rgba(199, 190, 190, 1);
 }
 .picture {
     width: 380px;
     height: 120px;
+    border-radius: 5px 5px 0 0;
     -o-object-fit: cover;
        object-fit: cover;
 }
 /* Body card*/
-section {
-    display: flex;
-    height: 186px;
-    overflow: hidden;
-}
+
 .box-title {
     display: flex;
 }
 .body_recette {
     background: rgba(231, 231, 231, 1);   
+    border-radius: 0px 0px 5px 5px
 }
 .title {
     width: 274px;
@@ -115,4 +117,8 @@ section {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis
+}
+.article {
+    display: flex;
+    height: 187px;  
 }

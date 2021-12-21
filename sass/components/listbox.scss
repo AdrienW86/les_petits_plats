@@ -1,12 +1,13 @@
 /*Listbox*/
 .listbox-container {
+    height: auto;
     width: 100%;
-    margin-left: 10px;
-    height: 100px;
-    display: flex;
-    justify-content: left;
+    margin: 10px 0px 10px 10px;
+    display: flex;   
+    flex-wrap: wrap;
 }
-.listbox0, .listbox1, .listbox2 {
+
+.listbox {
     display: flex;
     height: 69px;
     width: 170px;
@@ -15,121 +16,85 @@
     color: white;
     border-radius: 5px;
     border: none;
-    font-size: 18px;
     font-weight: bold;
     font-family: 'Lato', sans-serif;
 }
-.listbox-title {
-    width: 100%;
-    border: none;
-    justify-content: space-between;
-    height: 45px;
-    margin-right: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    color: rgba(255, 255, 255, 1);
+.listboxopen {
+    display: none;
+    width: 600px;
+    height: auto;
+    margin-left: 10px;
+    z-index: 4;
 }
-input.find0, input.find1, input.find2 {
+.listbox-header {
     display: flex;
+    width: 100%;
+    height: 100%;
+}
+input.find {
+    display: flex;
+    width: 90%;
     outline: none;
     color: white;
     font-weight: bold;
     font-size: 12px;
-    width: 90%;
     height: 45px;
     border: none;
     border-radius: 5px;
     padding-left: 20px;
-    z-index: 100;
 }
 .find0::placeholder, .find1::placeholder, .find2::placeholder {
-   color: rgba(255, 255, 255, 0.5);
-   opacity: 1;
-   font-weight: bold;
-   font-size: 18px;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    font-weight: bold;
+    font-size: 18px;
+    width: auto;  
 }
-input.find1, input.find2 {
-    width: 90%;
+.array {
     display: flex;
-    flex-direction: column;
-}
-.array0 {
-    display: none;
-    justify-content: center;
-    border-radius: 5px;
-    height: 850px;
-    width: 700px;
-    margin-left: 18px;
-    z-index: 1;    
-}
-.array1, .array2 {
-    display: none;
-    justify-content: center;
-    border-radius: 5px;
-    width: 300px;
-    margin-left: 15px;
-    height: 750px;
-    z-index: 1;
-}
-.ul-box0 {
-   position: absolute;
-    display: flex;
-    z-index: 20;
-    height: 870px;
-    width: 700px;
-    border-radius: 5px;
-}
-.ul-box1, .ul-box2 {
-    position: absolute;
-    display: flex;
-    height: 300px;
-    width: 300px;
-    height: 570px;
-    z-index: 20;
-    border-radius: 5px;
-}
-.list-li0 {
-    display: flex;
-    flex-direction: column;
-    flex-flow: wrap;
-    margin-top: 10px;
-    height: 750px;
     width: 100%;
-    z-index: 20;
+    justify-content: center;
+    height: auto;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
 }
-.list-li1, .list-li2 {
+.ul-box0, .ul-box1, .ul-box2 {
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.list-li0, .list-li1, .list-li2 {
     display: flex;
     flex-flow: wrap;
     margin-top: 10px;
-    height: 450px;
-    width: 200px;
     z-index: 20;
 }
 ul {
     list-style: none;
-    padding-top: 55px;
 }
 .option {
     display: flex;
     color: rgb(255, 255, 255);
-    width: 180px;
+    width: 160px;
     height: 20px;
-    margin-right: 20px;
 }
 .tag-container {
     display: flex;
-    height: 60px;
+    position: relative;
     flex-flow: wrap; 
     width: 100%;
 }
 .tag-ingredient, .tag-appareil, .tag-ustensil {
     display: flex;
     margin-left: 16px;
+    margin-bottom: 10px;
     height: 28px;
     border-radius: 4px;
-    padding-right: 2px; 
-    padding-left: 2px; 
-    padding-top: 8px;
+    padding: 8px 2px 0px 2px;
     font-size: 14px;
     color: white;
     text-align: center;
