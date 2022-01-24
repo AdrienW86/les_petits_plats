@@ -12,7 +12,8 @@ export default class Recipe {
     }
 
     buildRecipe() {
-        const main = document.getElementById("container")
+       
+        const container = document.querySelector("#container")
         const card = document.createElement("section")
         const headercard = document.createElement("div")
         const picture = document.createElement("img")
@@ -24,7 +25,7 @@ export default class Recipe {
         const ul = document.createElement("ul")
         const description = document.createElement("div")
         
-        main.appendChild(card)
+        container.appendChild(card)
         card.appendChild(headercard) 
         headercard.appendChild(picture)      
         card.appendChild(bodyCard)
@@ -77,6 +78,6 @@ export default class Recipe {
             }) 
         let newArray= [... new Set(itemArray)]
         card.setAttribute("data-ingredient", newArray)
-        description.innerHTML = this.description     
+        description.innerHTML = this.description    
     }
 }

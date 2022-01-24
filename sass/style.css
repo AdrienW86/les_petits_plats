@@ -117,9 +117,11 @@ p {
 
 .listboxopen {
   display: none;
+  position: relative;
   width: 600px;
   height: auto;
   margin-left: 10px;
+  margin-right: 10px;
   z-index: 4;
 }
 
@@ -161,6 +163,7 @@ input.find {
 }
 
 .ul-box0, .ul-box1, .ul-box2 {
+  position: absolute;
   display: flex;
   flex-direction: column;
   flex-flow: wrap;
@@ -227,7 +230,6 @@ input.search {
 }
 
 input.search::placeholder {
-  padding-left: 20px;
   color: black;
   opacity: 0.25;
   font-size: 18px;

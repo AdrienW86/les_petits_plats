@@ -1,18 +1,11 @@
-import Recipe from "./class-recipes.js"
 import Listbox from "./class-listbox.js"
-import { recipes } from "../recipes.js"
 import { uniqueIngredient, uniqueAppareil, uniqueUstensil } from "./datas.js"
-import { buildArray, openArray, closeArray, createTag } from "./functions.js"
-import { search, searchArray, searchBar } from "./search.js"
+import { buildArray, openArray, closeArray } from "./functions.js"
+import { buildListRecipe, searchArray, searchBar,  createFilterTag } from "./search.js"
 
-  searchBar()
-
-  // Création de la liste de recette
-  recipes.forEach(recette => {
-    const listOfRecipes = new Recipe(recette)
-    listOfRecipes.buildRecipe()
-  })
-
+searchBar()
+buildListRecipe()
+  
 // Création des listbox 
 const build = new Listbox(uniqueIngredient, uniqueUstensil, uniqueAppareil)
       build.buildListbox()
@@ -27,11 +20,11 @@ const build = new Listbox(uniqueIngredient, uniqueUstensil, uniqueAppareil)
       openListboxUstensils.forEach(btn => btn.addEventListener("click", openArray))
 
 // Création des listes de la listbox
- buildArray()
- searchArray()        
- // Boutons
- document.querySelectorAll(".btn-close").forEach(btn => btn.addEventListener("click", closeArray))
- document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
+buildArray()
+searchArray()
 
-
- document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", search))
+// Boutons
+document.querySelectorAll(".btn-close").forEach(btn => btn.addEventListener("click", closeArray))
+//document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
+// document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", search))
+document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createFilterTag))

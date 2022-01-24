@@ -43,4 +43,5 @@ const data = []
 data.push(uniqueIngredient, uniqueAppareil, uniqueUstensil)
 console.log(data)
 
+
 export {uniqueIngredient, uniqueAppareil, uniqueUstensil}
