@@ -291,7 +291,7 @@ export const recipes = [
                "unit": "grammes"
            },
            {
-                "ingredient": "farine",
+                "ingredient": "Farine",
                 "quantity": 90,
                 "unit": "grammes"
            }

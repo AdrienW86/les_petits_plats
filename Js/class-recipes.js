@@ -11,8 +11,7 @@ export default class Recipe {
         this.ustensils = data.ustensils
     }
 
-    buildRecipe() {
-       
+    buildRecipe() {   
         const container = document.querySelector("#container")
         const card = document.createElement("section")
         const headercard = document.createElement("div")

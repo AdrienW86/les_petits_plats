@@ -1,7 +1,7 @@
 import {recipes} from "../recipes.js"
 
 // Initialisation des différents tableaux
-const recettes = []
+const ingredients = []
 const listIngredients = []
 
 const ustensils = []
@@ -12,13 +12,13 @@ const listAppareils = []
 
 // Création de la liste des recettes
 recipes.forEach(recette => {
-    recettes.push(recette.ingredients)
+    ingredients.push(recette.ingredients)
     ustensils.push(recette.ustensils)
     appareils.push(recette.appliance)
 })
 
 // On filtre les ingrédients
-recettes.forEach(element => {
+ingredients.forEach(element => {
   element.forEach(produit => {
     listIngredients.push(produit.ingredient.charAt(0).toUpperCase() + produit.ingredient.substring(1).toLowerCase())  
   })
@@ -41,7 +41,5 @@ let uniqueAppareil = [...new Set( listAppareils.sort((a,b) => a.localeCompare(b,
 
 const data = []
 data.push(uniqueIngredient, uniqueAppareil, uniqueUstensil)
-console.log(data)
 
-
-export {uniqueIngredient, uniqueAppareil, uniqueUstensil}
+export {data, uniqueIngredient, uniqueAppareil, uniqueUstensil}
