@@ -14,10 +14,18 @@ export function createTag(e) {
   tag = e.target.innerHTML.trimStart().trimEnd()
 
   let list0 = document.querySelector(".list-li0")
-  console.log(list0)
+  let list1 = document.querySelector(".list-li1")
+  let list2 = document.querySelector(".list-li2")
+
   while(list0.hasChildNodes()) {
     list0.removeChild(list0.lastChild)
  }  
+ while(list1.hasChildNodes()) {
+  list1.removeChild(list1.lastChild)
+}  
+while(list2.hasChildNodes()) {
+  list2.removeChild(list2.lastChild)
+}  
    // On créé la strcuture Html du tag
      tagContainer.style.display = "flex"
       let div = document.createElement("div")
@@ -40,7 +48,7 @@ export function createTag(e) {
     // On adapte la méthode de filtrage selon le nombre de tags
     if(nombreDeTags == 1) {
       creationListesDeRecettes(e, recipes, tagSelected)
-      getAllRecipe(tagSelected)     
+     // getAllRecipe(tagSelected)     
     }
     else if(nombreDeTags > 1) {      
       creationListesDeRecettes(e, tagSelected, newArray)
@@ -57,9 +65,6 @@ export function createTag(e) {
 // Suppression d'un tag 
 export function deleteTag(e) {
     nombreDeTags --  
-    while(container.hasChildNodes()) {
-      container.removeChild(container.lastChild)
-   }   
     e.target.parentElement.remove()         
     closeArray(e)
     // On vide la liste des recetttes
@@ -85,6 +90,23 @@ function recetteByTag () {
            recetteFiltrees.push(recette)
          }      
     })
+  
+    recipes.forEach(recette => {
+      console.log(recette)
+        if(array.every(tag => recette.appliance.includes(tag))) {
+          recetteFiltrees.push(recette)
+        }
+    })
+
+
+
+    recipes.forEach(recette => {          
+      let target = recette.ustensils   
+        if(array.every(tag => target.includes(tag.toLowerCase()))) {
+           recetteFiltrees.push(recette)
+        }        
+    })
+    recetteFiltrees =[...new Set(recetteFiltrees)]
     recetteFiltrees.forEach(recette => {
       const filterList = new Recipe(recette)
             filterList.buildRecipe()

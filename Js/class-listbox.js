@@ -1,5 +1,5 @@
 export default class Listbox {
-  constructor(ingredients,ustensiles,appareils) {
+  constructor(ingredients, appareils, ustensiles,) {
     this.ingredients = ingredients
     this.ustensiles = ustensiles
     this.appareils = appareils

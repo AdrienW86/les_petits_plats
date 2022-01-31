@@ -65,8 +65,6 @@ export function creationDesListbox(array) {
   arrayAppareils = [...new Set(arrayAppareils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
   arrayUstensils = [...new Set(arrayUstensils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
   array = [...new Set(array.sort())]
-  console.table(array)
-  console.table(arrayUstensils)
 
   const listIngredients = new Listbox(arrayIngredients, arrayAppareils, arrayUstensils )
         listIngredients.buildArray()  
