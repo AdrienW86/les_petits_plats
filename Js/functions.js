@@ -1,17 +1,14 @@
 import Recipe from "./class-recipes.js"
 import Listbox from "./class-listbox.js"
-import { uniqueIngredient, uniqueUstensil, uniqueAppareil } from "./datas.js"
-
 
 // Ouverture de la listbox
 export function openArray(e) {  
-  console.log(container)
   let listboxs = document.querySelectorAll(".listbox")
   let listboxopens = document.querySelectorAll(".listboxopen")
-    listboxs.forEach(listbox => listbox.style.display = "flex")
-    listboxopens.forEach(listboxopen => listboxopen.style.display = "none")
-      e.target.closest(".listbox").style.display = "none"
-      e.target.closest(".listbox").nextSibling.style.display = "flex"
+      listboxs.forEach(listbox => listbox.style.display = "flex")
+      listboxopens.forEach(listboxopen => listboxopen.style.display = "none")
+        e.target.closest(".listbox").style.display = "none"
+        e.target.closest(".listbox").nextSibling.style.display = "flex"
 }
 // Fermeture de la listbox  
 export function closeArray(e) {
@@ -24,12 +21,53 @@ export function closeArray(e) {
 export function getAllRecipe(array) {
   array.forEach(recette => {
     const listOfRecipes = new Recipe(recette)
-    listOfRecipes.buildRecipe()          
+          listOfRecipes.buildRecipe()          
   })
 }
+// Création du tableau des recettes filtrées à afficher
+export function creationListesDeRecettes (e, array, filterArray) {
+ let tag = e.target.innerHTML.trimStart().trimEnd()  
+     array.forEach(recette => {
+         recette.ingredients.forEach(ingredient => {
+             if(ingredient.ingredient == tag) {                   
+               filterArray.push(recette)
+             }
+         })       
+     });
+     array.forEach(recette => {
+         if(recette.appliance == tag) {
+           filterArray.push(recette)
+         }           
+     });
+     array.forEach(recette => {
+         recette.ustensils.forEach(ustensil => {
+             ustensil = ustensil.charAt(0).toUpperCase() + ustensil.substring(1).toLowerCase()
+             if(ustensil == tag) {                      
+               filterArray.push(recette)
+             }
+         })
+     });  
+  filterArray = [... new Set (filterArray)]  
+}  
+// Création des listbox filtrées
+export function creationDesListbox(array) {
+  let arrayIngredients = []; let arrayAppareils = []; let arrayUstensils = [];
+  array.forEach(recette => {
+    arrayAppareils.push(recette.appliance.charAt(0).toUpperCase() + recette.appliance.substring(1).toLowerCase())
+      recette.ingredients.forEach(ingredient => {
+        arrayIngredients.push(ingredient.ingredient.charAt(0).toUpperCase() + ingredient.ingredient.substring(1).toLowerCase())
+      })
+      recette.ustensils.forEach(ustensil => {
+        arrayUstensils.push(ustensil.charAt(0).toUpperCase() + ustensil.substring(1).toLowerCase())
+      })
+  })
+  arrayIngredients = [...new Set(arrayIngredients.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
+  arrayAppareils = [...new Set(arrayAppareils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
+  arrayUstensils = [...new Set(arrayUstensils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
+  array = [...new Set(array.sort())]
+  console.table(array)
+  console.table(arrayUstensils)
 
-// Afficher les données des listbox
-export function getAllListbox() {   
-  const listIngredients = new Listbox(uniqueIngredient, uniqueUstensil, uniqueAppareil)
-        listIngredients.buildArray()   
+  const listIngredients = new Listbox(arrayIngredients, arrayAppareils, arrayUstensils )
+        listIngredients.buildArray()  
 }

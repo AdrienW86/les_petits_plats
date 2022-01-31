@@ -1,5 +1,5 @@
-export function buildListbox(tableau1, tableau2, tableau3) {
-    for(let i = 0; i < 3; i++) {
+export function buildListbox() {
+  for(let i = 0; i < 3; i++) {
       let classname = "listbox" 
       let title = "title" + i
       let find = "find" + i 
@@ -15,23 +15,22 @@ export function buildListbox(tableau1, tableau2, tableau3) {
           listbox.innerHTML = `<div class="listbox-header">
                                     <div class="${title}"></div>                                
                                       <button class="${selectBtn}"></button>
-                              </div> `
-                               
-    let listbox_open = document.createElement("div")
-    listbox_open.classList.add(classname + "open") 
-    section.appendChild(listbox_open)
-    listbox_open.innerHTML = `<div class="array">  
-                                <div class="${ulbox}">
-                                  <input class="find ${find}" type="search"/>
-                                  <button class="${close}"></button>                         
-                                  <ul class="${list}"></ul>                                    
-                                </div>
-                              </div>`                     
-    }
-    document.querySelector(".title0").innerHTML = "Ingrédients"
-    document.querySelector(".find0").setAttribute("placeholder", " Rechercher un ingrédient")
-    document.querySelector(".title1").innerHTML = "Appareils"
-    document.querySelector(".find1").setAttribute("placeholder", " Rechercher un appareil")
-    document.querySelector(".title2").innerHTML = "Ustensiles"
-    document.querySelector(".find2").setAttribute("placeholder", " Rechercher un ustensile")     
+                              </div> `                              
+      let listbox_open = document.createElement("div")
+          listbox_open.classList.add(classname + "open") 
+          section.appendChild(listbox_open)
+          listbox_open.innerHTML = `<div class="array">  
+                                      <div class="${ulbox}">
+                                        <input class="find ${find}" type="search"/>
+                                        <button class="${close}"></button>                         
+                                        <ul class="${list}"></ul>                                    
+                                      </div>
+                                    </div>`                     
   }
+  document.querySelector(".title0").innerHTML = "Ingrédients"
+  document.querySelector(".find0").setAttribute("placeholder", " Rechercher un ingrédient")
+  document.querySelector(".title1").innerHTML = "Appareils"
+  document.querySelector(".find1").setAttribute("placeholder", " Rechercher un appareil")
+  document.querySelector(".title2").innerHTML = "Ustensiles"
+  document.querySelector(".find2").setAttribute("placeholder", " Rechercher un ustensile")     
+}

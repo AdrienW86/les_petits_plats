@@ -1,20 +1,17 @@
 import { recipes } from "../recipes.js"
 import { buildListbox } from "./listbox.js"
-import { getAllRecipe, getAllListbox, openArray, closeArray} from "./functions.js"
-import { createTag} from "./test.js"
+import { getAllRecipe, openArray, closeArray, creationDesListbox} from "./functions.js"
+import { createTag } from "./test.js"
 import { searchArray, searchBar } from "./search.js"
-
 
 // On affiche la barre de recherche principale
 searchBar()
-
 // On affiche toutes les recettes
 getAllRecipe(recipes)
 // On créé les listbox
-buildListbox()
-
+buildListbox()    
 // On ajoute les données aux listbox
-getAllListbox()
+creationDesListbox(recipes)
 
 // Les différents boutons
 const openListboxIngredients = document.querySelectorAll(".select-btn0")

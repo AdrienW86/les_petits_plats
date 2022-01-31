@@ -1,19 +1,23 @@
 import { recipes } from "../recipes.js";
-import { closeArray, getAllRecipe } from "./functions.js"
+import Recipe from "./class-recipes.js";
+import { closeArray, getAllRecipe, creationListesDeRecettes, creationDesListbox } from "./functions.js"
 
 let tagSelected = []
+let newArray = []
 let nombreDeTags = 0
-let precedentTableauDeRecette
-let filterIngredients = []; let filterAppliances = []; let filterUstensils = []
 let tag
 let tagContainer = document.querySelector(".tag-container")
-let previousArray = []
-
 
 // Création d'un tag
-export function createTag(e) {  
-    nombreDeTags ++
-    tag = e.target.innerHTML.trimStart().trimEnd()
+export function createTag(e) { 
+  nombreDeTags ++
+  tag = e.target.innerHTML.trimStart().trimEnd()
+
+  let list0 = document.querySelector(".list-li0")
+  console.log(list0)
+  while(list0.hasChildNodes()) {
+    list0.removeChild(list0.lastChild)
+ }  
    // On créé la strcuture Html du tag
      tagContainer.style.display = "flex"
       let div = document.createElement("div")
@@ -27,130 +31,62 @@ export function createTag(e) {
            }
            else if(e.target.value == "ustensil") {
              div.setAttribute("class","tag-ustensil")
-           }  
-     document.querySelectorAll(".btn-close-tag").forEach(btn => btn.addEventListener("click", deleteTag))    
-   // On vide la liste des recetttes
+           } 
+           document.querySelectorAll(".btn-close-tag").forEach(btn => btn.addEventListener("click", deleteTag)) 
+     // On vide la liste des recetttes
     while(container.hasChildNodes()) {
        container.removeChild(container.lastChild)
-    }
+    } 
     // On adapte la méthode de filtrage selon le nombre de tags
-      if(nombreDeTags == 1) {
-        creationListesDeRecettes(e)
-        getAllRecipe(tagSelected)   
-      }
-      else if(nombreDeTags > 1) {      
-        ajouterPlusieursTags(tag, tagSelected)
-        getAllRecipe(tagSelected)
-      }
-    // On ferme la listbox
-    closeArray(e)
-    previousArray.push(tagSelected)
-    console.log(previousArray)
-    console.log(nombreDeTags)
+    if(nombreDeTags == 1) {
+      creationListesDeRecettes(e, recipes, tagSelected)
+      getAllRecipe(tagSelected)     
+    }
+    else if(nombreDeTags > 1) {      
+      creationListesDeRecettes(e, tagSelected, newArray)
+        tagSelected = [...new Set(newArray)]
+        newArray = []
+    } 
+    creationDesListbox(tagSelected)
+    // On ferme la listbox 
+    getAllRecipe(tagSelected) 
+      document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
+    closeArray(e)     
 }
-// Ajouter de nouveaux tags à partir du tableau filtré
-function ajouterPlusieursTags(tag, array) {
-  let newArray = []
-    array.forEach(recette => {
-      recette.ingredients.forEach(ingredient => {
-        if(ingredient.ingredient == tag) {
-            newArray.push(recette)
-        }
-      })  
-    })
-    array.forEach(recette => {
-      if(recette.appliance == tag) {
-        newArray.push(recette)       
-      }           
-  });
-    array.forEach(recette => {
-      recette.ustensils.forEach(ustensil => {
-          ustensil = ustensil.charAt(0).toUpperCase() + ustensil.substring(1).toLowerCase()
-          if(ustensil == tag) {             
-            newArray.push(recette)          
-          }
-      })
-  });
-  tagSelected = [...new Set(newArray)]
-}
-// Création du tableau des recettes filtrées à afficher
-function creationListesDeRecettes (e) {
-     tag = e.target.innerHTML.trimStart().trimEnd()
-    console.log(tag)   
-        recipes.forEach(recette => {
-            recette.ingredients.forEach(ingredient => {
-                if(ingredient.ingredient == tag) {                   
-                  tagSelected.push(recette)
-                }
-            })       
-        });
-        recipes.forEach(recette => {
-            if(recette.appliance == tag) {
-              tagSelected.push(recette)
-            }           
-        });
-        recipes.forEach(recette => {
-            recette.ustensils.forEach(ustensil => {
-                ustensil = ustensil.charAt(0).toUpperCase() + ustensil.substring(1).toLowerCase()
-                if(ustensil == tag) {                      
-                  tagSelected.push(recette)
-                }
-            })
-        });  
-  precedentTableauDeRecette = [... new Set (tagSelected)]
-  console.table(precedentTableauDeRecette)
-    if(nombreDeTags > 1) {
-      precedentTableauDeRecette = [... new Set (tagSelected)]
-      console.table(precedentTableauDeRecette)    
-    }      
-}       
-export function creationDesListbox() {
-  tagSelected.forEach(recette => {
-    filterAppliances.push(recette.appliance.charAt(0).toUpperCase() + recette.appliance.substring(1).toLowerCase())
-      recette.ingredients.forEach(ingredient => {
-        filterIngredients.push(ingredient.ingredient.charAt(0).toUpperCase() + ingredient.ingredient.substring(1).toLowerCase())
-      })
-      recette.ustensils.forEach(ustensil => {
-        filterUstensils.push(ustensil.charAt(0).toUpperCase() + ustensil.substring(1).toLowerCase())
-      })
-  })
-  filterIngredients = [...new Set(filterIngredients.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
-  filterAppliances = [...new Set(filterAppliances.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
-  filterUstensils = [...new Set(filterUstensils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
-  tagSelected = [...new Set(tagSelected.sort())]
-  console.log(tag)
-  
-    // On supprime le tag du tableau des élements
-    const index1 = filterIngredients.indexOf(tag)
-    const index2 = filterUstensils.indexOf(tag)
-    const index3 = filterAppliances.indexOf(tag) 
-    if(index1 > -1) {  
-      filterIngredients.splice(index1, 1)   
-    }else if(index2 > -1 ) {
-      filterUstensils.splice(index3, 1)
-    }else if(index3 > -1 ) {
-      filterAppliances.splice(index2, 1)  
-    }    
-}
+
 // Suppression d'un tag 
 export function deleteTag(e) {
-    nombreDeTags --
-    e.target.parentElement.remove()   
-      let listePrecedente = previousArray[nombreDeTags-1]
-        console.table(previousArray)
-        console.table(listePrecedente) 
-        previousArray.pop()
-        console.table(previousArray)
+    nombreDeTags --  
+    while(container.hasChildNodes()) {
+      container.removeChild(container.lastChild)
+   }   
+    e.target.parentElement.remove()         
     closeArray(e)
     // On vide la liste des recetttes
     while(container.hasChildNodes()) {
         container.removeChild(container.lastChild)
-      }
-    if(nombreDeTags > 0) {
-      console.log(nombreDeTags)
-      getAllRecipe(listePrecedente)
-    }else{
-      tagSelected = []
+      }    
+    if(nombreDeTags > 0) {    
+      recetteByTag()  
+    }else{     
         getAllRecipe(recipes)                 
-    } 
+    }    
   }
+
+function recetteByTag () {
+  let recetteFiltrees = []
+  let array = []
+    tagContainer.childNodes.forEach(tag => {   
+      array.push(tag.innerText)
+    })
+    recipes.forEach(recette => {       
+      let target = recette.ingredients
+        if(array, target, array.every(tag => target.some(el => el.ingredient === tag))) {
+           recetteFiltrees.push(recette)
+         }      
+    })
+    recetteFiltrees.forEach(recette => {
+      const filterList = new Recipe(recette)
+            filterList.buildRecipe()
+    }) 
+}
