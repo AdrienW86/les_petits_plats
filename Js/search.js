@@ -11,6 +11,10 @@ export function searchBar() {
           recette.style.display = "none"
         }
       })
+    }else{
+      Array.prototype.forEach.call(recettes, function(recette) {       
+        recette.style.display = "block"   
+      })
     }
   })
 }

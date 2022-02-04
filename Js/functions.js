@@ -24,31 +24,6 @@ export function getAllRecipe(array) {
           listOfRecipes.buildRecipe()          
   })
 }
-// Création du tableau des recettes filtrées à afficher
-export function creationListesDeRecettes (e, array, filterArray) {
- let tag = e.target.innerHTML.trimStart().trimEnd()  
-     array.forEach(recette => {
-         recette.ingredients.forEach(ingredient => {
-             if(ingredient.ingredient == tag) {                   
-               filterArray.push(recette)
-             }
-         })       
-     });
-     array.forEach(recette => {
-         if(recette.appliance == tag) {
-           filterArray.push(recette)
-         }           
-     });
-     array.forEach(recette => {
-         recette.ustensils.forEach(ustensil => {
-             ustensil = ustensil.charAt(0).toUpperCase() + ustensil.substring(1).toLowerCase()
-             if(ustensil == tag) {                      
-               filterArray.push(recette)
-             }
-         })
-     });  
-  filterArray = [... new Set (filterArray)]  
-}  
 // Création des listbox filtrées
 export function creationDesListbox(array) {
   let arrayIngredients = []; let arrayAppareils = []; let arrayUstensils = [];
@@ -65,6 +40,7 @@ export function creationDesListbox(array) {
   arrayAppareils = [...new Set(arrayAppareils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
   arrayUstensils = [...new Set(arrayUstensils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
   array = [...new Set(array.sort())]
+
 
   const listIngredients = new Listbox(arrayIngredients, arrayAppareils, arrayUstensils )
         listIngredients.buildArray()  
