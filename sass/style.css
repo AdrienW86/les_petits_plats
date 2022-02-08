@@ -345,13 +345,16 @@ header {
 .liste_ingredients {
   list-style: none;
   font-size: 12px;
-  font-weight: bold;
   line-height: 120%;
   width: 169px;
   height: 105px;
   padding: 0;
   margin: 0;
   padding: 10px 0 0 20px;
+}
+
+.span_ingredient {
+  font-weight: bold;
 }
 
 .ul-container, .description-container {
@@ -376,6 +379,23 @@ header {
 .article {
   display: flex;
   height: 187px;
+}
+
+@media only screen and (max-width:760px) {
+  #container {
+    justify-content: center;
+  }
+}
+@media only screen and (min-width:760px) and (max-width: 855px) {
+  #container {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width:760px) {
+  .fiche_recette {
+    margin: auto;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

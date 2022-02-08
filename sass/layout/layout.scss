@@ -93,13 +93,15 @@ header {
 .liste_ingredients {
    list-style: none;
    font-size: 12px;
-   font-weight: bold;
    line-height: 120%;
    width: 169px;
    height: 105px;
    padding: 0;
    margin: 0;
    padding: 10px 0 0 20px;   
+}
+.span_ingredient {
+    font-weight: bold;
 }
 .ul-container, .description-container {
   display: flex;
@@ -121,4 +123,19 @@ header {
 .article {
     display: flex;
     height: 187px;  
+}
+/// Format Téléphone ///
+
+#container {
+    @media #{$phone} {
+        justify-content: center; 
+    }
+    @media #{$medium} {
+        justify-content: center; 
+    }
+}
+.fiche_recette {
+    @media #{$phone} {
+        margin: auto;
+    }
 }

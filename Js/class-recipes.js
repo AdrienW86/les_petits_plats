@@ -65,14 +65,14 @@ export default class Recipe {
                 }
                 ul.appendChild(li)
                 if(item.quantity && item.unit) {
-                    li.innerHTML = item.ingredient + ": " + item.quantity + " " + item.unit                      
+                    li.innerHTML = `<span class= "span_ingredient"> ${item.ingredient} </span> : ${item.quantity} ${item.unit}`                    
                 }else if(item.quantity && ! item.unit){
-                    li.innerHTML = item.ingredient + ": " + item.quantity 
+                    li.innerHTML = `<span class= "span_ingredient"> ${item.ingredient} </span> : ${item.quantity}`
                 }else if(!item.quantity && item.unit) {
-                    li.innerHTML = item.ingredient + item.unit 
+                    li.innerHTML = `<span class= "span_ingredient"> ${item.ingredient} </span> : ${item.unit}` 
                 }else{
-                    li.innerHTML = item.ingredient 
-                }           
+                    li.innerHTML = `<span class= "span_ingredient"> ${item.ingredient} </span>` 
+                }         
             }) 
         let newArray= [... new Set(itemArray)]
         card.setAttribute("data-ingredient", newArray)
