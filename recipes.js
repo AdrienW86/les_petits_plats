@@ -1417,7 +1417,7 @@ export const recipes = [
                 "unit": "Litres"
             },
             {
-                "ingredient": "Citron Vert",
+                "ingredient": "Citron vert",
                 "quantity": 3
             },
             {
