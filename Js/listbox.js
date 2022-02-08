@@ -20,17 +20,17 @@ export function buildListbox() {
           listbox_open.classList.add(classname + "open") 
           section.appendChild(listbox_open)
           listbox_open.innerHTML = `<div class="array">  
-                                      <div class="${ulbox}">
+                                      <div class=" ${ulbox}">
                                         <input class="find ${find}" type="search"/>
                                         <button class="${close}"></button>                         
-                                        <ul class="${list}"></ul>                                    
+                                        <ul class="ul ${list}"></ul>                                    
                                       </div>
                                     </div>`                     
   }
   document.querySelector(".title0").innerHTML = "Ingrédients"
-  document.querySelector(".find0").setAttribute("placeholder", " Rechercher un ingrédient")
+  document.querySelector(".find0").setAttribute("placeholder", "Rechercher un ingrédient")
   document.querySelector(".title1").innerHTML = "Appareils"
-  document.querySelector(".find1").setAttribute("placeholder", " Rechercher un appareil")
+  document.querySelector(".find1").setAttribute("placeholder", "Rechercher un appareil")
   document.querySelector(".title2").innerHTML = "Ustensiles"
-  document.querySelector(".find2").setAttribute("placeholder", " Rechercher un ustensile")     
+  document.querySelector(".find2").setAttribute("placeholder", "Rechercher un ustensile")   
 }

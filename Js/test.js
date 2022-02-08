@@ -33,17 +33,8 @@ export function createTag(e) {
        container.removeChild(container.lastChild)
     } 
     // On supprime le tag duy tableau de la listbox
-
-    console.log(e.target)
-
-
-
-
-
-
-    tagSelected = [...new Set(tagSelected)]  
-    recetteByTag(tagSelected)
-    creationDesListbox(tagSelected)
+    tagSelected = [...new Set(tagSelected)]     
+    recetteByTag(tagSelected, e)   
     // On ferme la listbox    
     document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
     closeArray(e)      
@@ -68,8 +59,8 @@ export function deleteTag(e) {
   document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
 }
 // Création des listes après suppression
-function recetteByTag (array) {
-  let arrayTag = []
+function recetteByTag (array, arrayTag) {
+  arrayTag = []
   array = []
     tagContainer.childNodes.forEach(tag => {    
       arrayTag.push(tag.innerText)                     
@@ -87,8 +78,9 @@ function recetteByTag (array) {
       const filterList = new Recipe(recette)
             filterList.buildRecipe()
     })
-  creationDesListbox(array)
+  creationDesListbox(array, arrayTag)
 }
+
 // Vider la liste des recettes
 function removeListboxList() {
   let list0 = document.querySelector(".list-li0")

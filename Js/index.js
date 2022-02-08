@@ -1,6 +1,6 @@
 import { recipes } from "../recipes.js"
 import { buildListbox } from "./listbox.js"
-import { getAllRecipe, openArray, closeArray, creationDesListbox} from "./functions.js"
+import { getAllRecipe, openArray, closeArray, creationDesListbox } from "./functions.js"
 import { createTag } from "./test.js"
 import { searchArray, searchBar } from "./search.js"
 
@@ -27,3 +27,9 @@ searchArray()
 // Boutons de la listbox
 document.querySelectorAll(".btn-close").forEach(btn => btn.addEventListener("click", closeArray))
 document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
+
+// Vider les recherches incomplètes
+document.querySelectorAll(".find").forEach(input => input.addEventListener("blur", (event) => {   
+      event.target.value =""   
+      creationDesListbox(recipes)
+}))
