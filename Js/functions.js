@@ -72,11 +72,11 @@ export function creationDesListbox(array, arrayTag) {
   ////////////////////////////////////////////////////
 
  
-  /// Penser aussi à utiliser la police demandée  ////
-  /// et réaliser la boucle native de la fonction search ////
-  /// penser à passer le site au validateur W3C ///
   
-  /// terminer le responsive ///
+  /// et réaliser la boucle native de la fonction search ////
+
+  
+  
 
 
   const listIngredients = new Listbox(arrayIngredients, arrayAppareils, arrayUstensils )
