@@ -136,6 +136,44 @@ header {
 }
 .fiche_recette {
     @media #{$phone} {
-        margin: auto;
+        width: 270px;
+        height: 340px 
+    }
+}
+.picture {
+    @media #{$phone} {
+        width: 270px 
+    }
+}
+.header_recette {
+    @media #{$phone} {
+        width: 270px 
+    }
+}
+.title, .time {
+    @media #{$phone} {
+        font-size: 12px;
+    }
+}
+.liste_ingredients {
+    @media #{$phone} {
+        width: 133px;
+        font-size: 12px;
+        padding-left: 4px
+    }
+}
+
+.description-container, .bloc-recette {
+    @media #{$phone} {
+        width: 133px;
+        font-size: 12px;
+        padding-right: 4px;
+        padding-left: 2px;
+        height: 126px;
+    }
+}
+.article {
+    @media #{$phone} {
+        height: 187px;
     }
 }

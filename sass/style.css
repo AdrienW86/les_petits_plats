@@ -381,20 +381,63 @@ header {
   height: 187px;
 }
 
-@media only screen and (max-width:760px) {
+@media only screen and (max-width:380px) {
   #container {
     justify-content: center;
   }
 }
-@media only screen and (min-width:760px) and (max-width: 855px) {
+@media only screen and (min-width:380px) and (max-width: 855px) {
   #container {
     justify-content: center;
   }
 }
 
-@media only screen and (max-width:760px) {
+@media only screen and (max-width:380px) {
   .fiche_recette {
-    margin: auto;
+    width: 270px;
+    height: 340px;
+  }
+}
+
+@media only screen and (max-width:380px) {
+  .picture {
+    width: 270px;
+  }
+}
+
+@media only screen and (max-width:380px) {
+  .header_recette {
+    width: 270px;
+  }
+}
+
+@media only screen and (max-width:380px) {
+  .title, .time {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width:380px) {
+  .liste_ingredients {
+    width: 133px;
+    font-size: 12px;
+    padding-left: 4px;
+  }
+}
+
+@media only screen and (max-width:380px) {
+  .description-container, .bloc-recette {
+    width: 133px;
+    font-size: 12px;
+    padding-right: 4px;
+    padding-left: 2px;
+    height: 126px;
+  }
+}
+
+@media only screen and (max-width:380px) {
+  .article {
+    height: 187px;
   }
 }
 
