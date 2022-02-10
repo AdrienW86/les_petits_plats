@@ -1,46 +1,35 @@
-import Recipe from "./class-recipes.js"
-import Listbox from "./class-listbox.js"
-import {recipes} from "../recipes.js"
-import {uniqueIngredient, uniqueAppareil, uniqueUstensil} from "./datas.js"
-import { buildArray, openArray, closeArray, createTag } from "./functions.js"
+import { recipes } from "../recipes.js"
+import { buildListbox } from "./listbox.js"
+import { getAllRecipe, openArray, closeArray, creationDesListbox } from "./functions.js"
+import { createTag } from "./tag.js"
+import { searchArray, searchBar2 } from "./search.js"
 
-  // Barre de recherche                       
-  document.querySelector(".search").addEventListener("keyup", function(e) {
-    let recherche = this.value.toLowerCase()
-    let recettes = document.querySelectorAll(".fiche_recette")
-    if(recherche.length > 2) {
-      Array.prototype.forEach.call(recettes, function(recette) {
-        if(recette.textContent.toLowerCase().indexOf(recherche) > -1) {
-          recette.style.display = "block"
-        }else {
-          recette.style.display = "none"
-        }
-      })
-    }
-  })
+// On affiche la barre de recherche principale
+searchBar2()
+// On affiche toutes les recettes
+getAllRecipe(recipes)
+// On créé les listbox
+buildListbox()    
+// On ajoute les données aux listbox
+creationDesListbox(recipes)
 
-  // Création de la liste de recette
-  recipes.forEach(recette => {
-    const listOfRecipes = new Recipe(recette)
-    listOfRecipes.buildRecipe()
-  })
-
-// Création des listbox 
-const build = new Listbox(uniqueIngredient, uniqueUstensil, uniqueAppareil)
-      build.buildListbox()
-
-      const openListboxIngredients = document.querySelectorAll(".select-btn0")
-      openListboxIngredients.forEach(btn => btn.addEventListener("click", openArray))
-
-      const openListboxAppareils = document.querySelectorAll(".select-btn1")
+// Les différents boutons
+const openListboxIngredients = document.querySelectorAll(".select-btn0")
+      openListboxIngredients.forEach(btn => btn.addEventListener("click", openArray))    
+const openListboxAppareils = document.querySelectorAll(".select-btn1")
       openListboxAppareils.forEach(btn => btn.addEventListener("click", openArray))
-
-      const openListboxUstensils = document.querySelectorAll(".select-btn2")
+const openListboxUstensils = document.querySelectorAll(".select-btn2")
       openListboxUstensils.forEach(btn => btn.addEventListener("click", openArray))
 
-// Création des listes de la listbox
- buildArray()
-          
- // Boutons
- document.querySelectorAll(".btn-close").forEach(btn => btn.addEventListener("click", closeArray))
- document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
+// Création de la recherche dans les listbox
+searchArray()
+
+// Boutons de la listbox
+document.querySelectorAll(".btn-close").forEach(btn => btn.addEventListener("click", closeArray))
+document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
+
+// Vider les recherches incomplètes
+document.querySelectorAll(".find").forEach(input => input.addEventListener("blur", (event) => {   
+      event.target.value =""   
+      creationDesListbox(recipes)
+}))
