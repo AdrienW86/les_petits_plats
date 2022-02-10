@@ -1,7 +1,7 @@
 import { recipes } from "../recipes.js"
 import { buildListbox } from "./listbox.js"
 import { getAllRecipe, openArray, closeArray, creationDesListbox } from "./functions.js"
-import { createTag } from "./test.js"
+import { createTag } from "./tag.js"
 import { searchArray, searchBar } from "./search.js"
 
 // On affiche la barre de recherche principale
@@ -33,3 +33,11 @@ document.querySelectorAll(".find").forEach(input => input.addEventListener("blur
       event.target.value =""   
       creationDesListbox(recipes)
 }))
+
+document.querySelector(".search").addEventListener("blur", (event) => {
+      event.target.value =""
+            while(container.hasChildNodes()) {
+                  container.removeChild(container.lastChild)
+            }    
+      getAllRecipe(recipes)
+})

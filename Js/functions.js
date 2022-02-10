@@ -41,8 +41,6 @@ export function creationDesListbox(array, arrayTag) {
   arrayAppareils = [...new Set(arrayAppareils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
   arrayUstensils = [...new Set(arrayUstensils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
   array = [...new Set(array.sort())]
-
-  console.table(arrayUstensils)
   // On supprime l'élement tagué dans la liste
   if(arrayTag) {
    arrayTag.forEach(tag => {
@@ -69,20 +67,9 @@ export function creationDesListbox(array, arrayTag) {
   afficherMessage(arrayAppareils, list1, search1)
   afficherMessage(arrayUstensils, list2, search2)
 
-  ////////////////////////////////////////////////////
-
- 
-  
-  /// et réaliser la boucle native de la fonction search ////
-  /// fonction changeAccent ????
-  
-  
-
-
   const listIngredients = new Listbox(arrayIngredients, arrayAppareils, arrayUstensils )
   listIngredients.buildArray() 
 }
-
 function afficherMessage (array, target, search) {
   let message = document.createElement("div")
       message.setAttribute("class", "message")
@@ -95,14 +82,4 @@ function afficherMessage (array, target, search) {
         message.style.display = "none"
         search.style.display = "block"
       }
-}
-
-function changeAccent(element) {
-   return element
-      .replace(/[àäâ]/g, "a")
-      .replace(/[ç]/g, "c")
-      .replace(/[éèêë]/g, "e")
-      .replace(/[îï]/g, "i")
-      .replace(/[ôö]/g, "o")
-      .replace(/[ùûû]/g, "u");
 }
