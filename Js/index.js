@@ -2,10 +2,8 @@ import { recipes } from "../recipes.js"
 import { buildListbox } from "./listbox.js"
 import { getAllRecipe, openArray, closeArray, creationDesListbox } from "./functions.js"
 import { createTag } from "./tag.js"
-import { searchArray, searchBar2 } from "./search.js"
+import { searchArray, searchBar } from "./search.js"
 
-// On affiche la barre de recherche principale
-searchBar2()
 // On affiche toutes les recettes
 getAllRecipe(recipes)
 // On créé les listbox
@@ -33,3 +31,6 @@ document.querySelectorAll(".find").forEach(input => input.addEventListener("blur
       event.target.value =""   
       creationDesListbox(recipes)
 }))
+
+// Barre de recherche
+document.querySelectorAll(".search").forEach(input => input.addEventListener("keyup", searchBar))
