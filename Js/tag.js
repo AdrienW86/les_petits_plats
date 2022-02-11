@@ -2,11 +2,10 @@ import Recipe from "./class-recipes.js";
 import { recipes } from "../recipes.js";
 import { closeArray, getAllRecipe, creationDesListbox } from "./functions.js"
 
-let tagSelected = []
 let nombreDeTags = 0
 let tag
 let tagContainer = document.querySelector(".tag-container")
-
+export let arraySearchBar = []
 // Création d'un tag
 export function createTag(e) { 
   nombreDeTags ++
@@ -32,12 +31,11 @@ export function createTag(e) {
     while(container.hasChildNodes()) {
        container.removeChild(container.lastChild)
     } 
-    // On supprime le tag duy tableau de la listbox
-    tagSelected = [...new Set(tagSelected)]     
-    recetteByTag(tagSelected, e)   
+    recetteByTag()   
     // On ferme la listbox    
     document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
-    closeArray(e)      
+    document.querySelector(".search").value =""
+    closeArray(e)  
 }
 // Suppression d'un tag 
 export function deleteTag(e) {
@@ -50,16 +48,15 @@ export function deleteTag(e) {
       container.removeChild(container.lastChild)
     }    
     if(nombreDeTags >= 1) {  
-      recetteByTag(tagSelected)  
+      recetteByTag()  
     }else{     
-      tagSelected = []
       getAllRecipe(recipes)   
       creationDesListbox(recipes)       
     }  
   document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
 }
 // Création des listes après suppression
-function recetteByTag (array, arrayTag) {
+export function recetteByTag (array, arrayTag) {
   arrayTag = []
   array = []
     tagContainer.childNodes.forEach(tag => {    
@@ -79,10 +76,12 @@ function recetteByTag (array, arrayTag) {
             filterList.buildRecipe()
     })
   creationDesListbox(array, arrayTag)
+  arraySearchBar = [...new Set(array)]
+  console.log(array)
 }
 
 // Vider la liste des recettes
-function removeListboxList() {
+export function removeListboxList() {
   let list0 = document.querySelector(".list-li0")
   let list1 = document.querySelector(".list-li1")
   let list2 = document.querySelector(".list-li2")
