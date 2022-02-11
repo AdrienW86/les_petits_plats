@@ -1,5 +1,6 @@
 import Recipe from "./class-recipes.js"
 import Listbox from "./class-listbox.js"
+import { createTag } from "./tag.js"
 
 // Ouverture de la listbox
 export function openArray(e) {  
@@ -10,6 +11,7 @@ export function openArray(e) {
         e.target.closest(".listbox").style.display = "none"
         e.target.closest(".listbox").nextSibling.style.display = "flex"
 }
+
 // Fermeture de la listbox  
 export function closeArray(e) {
   let list = document.querySelectorAll(".listbox")
@@ -40,8 +42,6 @@ export function creationDesListbox(array, arrayTag) {
   arrayAppareils = [...new Set(arrayAppareils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
   arrayUstensils = [...new Set(arrayUstensils.sort((a,b) => a.localeCompare(b, 'fr',{sensitivity: 'base'})))]
   array = [...new Set(array.sort())]
-
-  console.table(arrayUstensils)
   // On supprime l'élement tagué dans la liste
   if(arrayTag) {
    arrayTag.forEach(tag => {
@@ -55,6 +55,7 @@ export function creationDesListbox(array, arrayTag) {
       }
    })   
   }
+
   let list = document.querySelector(".list-li0")
   let list1 = document.querySelector(".list-li1")
   let list2 = document.querySelector(".list-li2")
@@ -70,7 +71,6 @@ export function creationDesListbox(array, arrayTag) {
   const listIngredients = new Listbox(arrayIngredients, arrayAppareils, arrayUstensils )
   listIngredients.buildArray() 
 }
-
 function afficherMessage (array, target, search) {
   let message = document.createElement("div")
       message.setAttribute("class", "message")
@@ -82,5 +82,16 @@ function afficherMessage (array, target, search) {
       }else{
         message.style.display = "none"
         search.style.display = "block"
+      }
+}
+
+export function messageRecette() {
+  document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
+      if(container.childNodes.length == 0) {
+        console.log("c'est vide")
+        let alert = document.createElement("div")
+            alert.setAttribute("class", "alert-container")
+            alert.innerText = " Désolé, aucun élement ne correspond à votre recherche"
+            container.appendChild(alert)
       }
 }
