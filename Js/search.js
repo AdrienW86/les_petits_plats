@@ -6,7 +6,7 @@ let array = []
 let filterRecipes = []
 
 // Barre de recherche globale version native
-export function searchBar2(e) {
+export function searchBar(e) {
   let newArray = []
   let input = e.target.value.toLowerCase()
   let tagContainer = document.querySelector(".tag-container").childNodes.length
