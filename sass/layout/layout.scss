@@ -177,3 +177,8 @@ header {
         height: 187px;
     }
 }
+input.search::placeholder {
+    @media #{$phone} {
+     text-overflow: ellipsis;
+    }
+}

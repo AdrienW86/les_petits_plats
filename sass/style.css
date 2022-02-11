@@ -245,6 +245,11 @@ input.search::placeholder {
   top: 20px;
 }
 
+.alert-container {
+  justify-content: center;
+  width: 100%;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -442,6 +447,12 @@ header {
 @media only screen and (max-width:380px) {
   .article {
     height: 187px;
+  }
+}
+
+@media only screen and (max-width:380px) {
+  input.search::placeholder {
+    text-overflow: ellipsis;
   }
 }
 
