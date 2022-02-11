@@ -30,17 +30,17 @@ document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener
 document.querySelectorAll(".find").forEach(input => input.addEventListener("blur", (event) => {   
       event.target.value ="" 
       let tagContainer = document.querySelector(".tag-container")
-      if(tagContainer.childNodes.length > 0) {
-            while(container.hasChildNodes()) {
-                  container.removeChild(container.lastChild)
-                }  
-            recetteByTag()
-      }else{
-            getAllRecipe(recipes) 
-            creationDesListbox(recipes)
+      while(container.hasChildNodes()) {
+            container.removeChild(container.lastChild)
       }  
+            if(tagContainer.childNodes.length > 0) {
+                  recetteByTag()
+            }else{
+                  getAllRecipe(recipes) 
+                  creationDesListbox(recipes)
+            }  
       document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
 }))
 
 // Barre de recherche
-document.querySelectorAll(".search").forEach(input => input.addEventListener("keyup", searchBar))
+document.querySelectorAll(".search").forEach(input => input.addEventListener("keyup", searchBar))lectorAll(".search").forEach(input => input.addEventListener("keyup", searchBar))
