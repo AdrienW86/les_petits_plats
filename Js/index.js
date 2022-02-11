@@ -1,7 +1,7 @@
 import { recipes } from "../recipes.js"
 import { buildListbox } from "./listbox.js"
 import { getAllRecipe, openArray, closeArray, creationDesListbox } from "./functions.js"
-import { createTag } from "./tag.js"
+import { createTag, recetteByTag } from "./tag.js"
 import { searchArray, searchBar } from "./search.js"
 
 // On affiche toutes les recettes
@@ -28,8 +28,18 @@ document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener
 
 // Vider les recherches incomplètes
 document.querySelectorAll(".find").forEach(input => input.addEventListener("blur", (event) => {   
-      event.target.value =""   
-      creationDesListbox(recipes)
+      event.target.value ="" 
+      let tagContainer = document.querySelector(".tag-container")
+      while(container.hasChildNodes()) {
+            container.removeChild(container.lastChild)
+      }  
+            if(tagContainer.childNodes.length > 0) {
+                  recetteByTag()
+            }else{
+                  getAllRecipe(recipes) 
+                  creationDesListbox(recipes)
+            }  
+      document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
 }))
 
 // Barre de recherche

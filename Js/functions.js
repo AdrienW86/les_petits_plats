@@ -1,5 +1,6 @@
 import Recipe from "./class-recipes.js"
 import Listbox from "./class-listbox.js"
+import { createTag } from "./tag.js"
 
 // Ouverture de la listbox
 export function openArray(e) {  
@@ -81,5 +82,14 @@ function afficherMessage (array, target, search) {
       }else{
         message.style.display = "none"
         search.style.display = "block"
+      }
+}
+export function messageRecette() {
+  document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
+      if(container.childNodes.length == 0) {
+        let alert = document.createElement("div")
+            alert.setAttribute("class", "alert-container")
+            alert.innerText = " Désolé, aucun élement ne correspond à votre recherche"
+            container.appendChild(alert)
       }
 }

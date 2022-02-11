@@ -77,7 +77,6 @@ export function recetteByTag (array, arrayTag) {
     })
   creationDesListbox(array, arrayTag)
   arraySearchBar = [...new Set(array)]
-  console.log(array)
 }
 
 // Vider la liste des recettes

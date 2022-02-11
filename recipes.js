@@ -40,7 +40,7 @@ export const recipes = [
         "servings": 2,
         "ingredients": [
             {
-                "ingredient" : "Thon Rouge (ou blanc)",
+                "ingredient" : "Thon rouge (ou blanc)",
                 "quantity" : 200,
                 "unit" : "grammes"
             },
@@ -57,11 +57,11 @@ export const recipes = [
                 "quantity" : 1
             },
             {
-                "ingredient" : "Citron Vert",
+                "ingredient" : "Citron vert",
                 "quantity" : 5
             },
             {
-                "ingredient" : "Lait de Coco",
+                "ingredient" : "Lait de coco",
                 "quantity" : 100,
                 "unit" : "ml"
             }
@@ -177,7 +177,7 @@ export const recipes = [
                "unit": "grammes"
            },
            {
-                "ingredient": "Moutarde de Dijon",
+                "ingredient": "Moutarde de dijon",
                 "quantity": 1,
                 "unite": "cuillères à soupe"
            }
@@ -286,7 +286,7 @@ export const recipes = [
                 "quantity": 2
            },
            {
-               "ingredient": "Sucre en Poudre",
+               "ingredient": "Sucre en poudre",
                "quantity": "110",
                "unit": "grammes"
            },
@@ -321,7 +321,7 @@ export const recipes = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Vinaigre Balsamic"
+                "ingredient": "Vinaigre balsamic"
             },
             {
                 "ingredient": "Huile d'olive"
@@ -396,7 +396,7 @@ export const recipes = [
                 "quantity": 1
             },
             {
-                "ingredient": "Salade Verte",
+                "ingredient": "Salade verte",
                 "quantity": 1
             },
             {
@@ -756,7 +756,7 @@ export const recipes = [
                 "unit": "cl"
             },
             {
-                "ingredient": "Crème Fraîche",
+                "ingredient": "Crème fraîche",
                 "quantity" : 1,
                 "unit": "cuillères à soupe"
             }
@@ -828,7 +828,7 @@ export const recipes = [
                 "quantity": 3
             },
             {
-                "ingredient": "Crème Fraîche",
+                "ingredient": "Crème fraîche",
                 "quantity": 20,
                 "unit": "cl"
             },
@@ -1061,7 +1061,7 @@ export const recipes = [
         "servings": 4,
         "ingredients": [
             {
-                "ingredient": "Pois Cassé",
+                "ingredient": "Pois cassé",
                 "quantity": 500,
                 "unit": "grammes"
             },
@@ -1169,7 +1169,7 @@ export const recipes = [
                 "unit": "tranches"
             },
             {
-                "ingredient": "Saumon Fumé",
+                "ingredient": "Saumon fumé",
                 "quantity": 4,
                 "unit": "tranches"
             },
@@ -1657,7 +1657,7 @@ export const recipes = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Crème Fraîche",
+                "ingredient": "Crème fraîche",
                 "quantity": 20,
                 "unit":"cl"
             }

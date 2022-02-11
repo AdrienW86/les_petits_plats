@@ -1,6 +1,6 @@
-import { creationDesListbox, getAllRecipe } from "./functions.js"
+import { creationDesListbox, messageRecette, getAllRecipe } from "./functions.js"
 import { recipes } from "../recipes.js"
-import { removeListboxList, createTag, recetteByTag, arraySearchBar } from "./tag.js"
+import { removeListboxList,  recetteByTag, arraySearchBar } from "./tag.js"
 
 let array = []
 let filterRecipes = []
@@ -64,16 +64,8 @@ export function searchBar(e) {
           recetteByTag(array)           
         }
     } 
-  document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
-  if(container.childNodes.length == 0) {
-    console.log("c'est vide")
-    let alert = document.createElement("div")
-        alert.setAttribute("class", "alert-container")
-        alert.innerText = " Désolé, aucun élement ne correspond à votre recherche"
-        container.appendChild(alert)
-  }
+    messageRecette()
 }
-
 // Barre de recherche des tableaux
 export function searchArray() {
     document.querySelectorAll(".find").forEach(input => input.addEventListener("keyup", function(e){
