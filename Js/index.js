@@ -1,7 +1,7 @@
 import { recipes } from "../recipes.js"
 import { buildListbox } from "./listbox.js"
 import { getAllRecipe, openArray, closeArray, creationDesListbox } from "./functions.js"
-import { createTag, recetteByTag } from "./tag.js"
+import { createTag, recetteByTag, removeListboxList } from "./tag.js"
 import { searchArray, searchBar } from "./search.js"
 
 // On affiche toutes les recettes
@@ -34,8 +34,10 @@ document.querySelectorAll(".find").forEach(input => input.addEventListener("blur
             container.removeChild(container.lastChild)
       }  
             if(tagContainer.childNodes.length > 0) {
+                  removeListboxList()
                   recetteByTag()
             }else{
+                  removeListboxList()
                   getAllRecipe(recipes) 
                   creationDesListbox(recipes)
             }  

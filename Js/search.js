@@ -59,8 +59,10 @@ export function searchBar(e) {
           })
           filterRecipes =[...new Set(newArray)]       
           getAllRecipe(filterRecipes)
+          removeListboxList()
           creationDesListbox(filterRecipes)          
         }else{
+          removeListboxList()
           recetteByTag(array)           
         }
     } 
