@@ -3,7 +3,7 @@ import { recipes } from "../recipes.js"
 import { removeListboxList,  recetteByTag, arraySearchBar } from "./tag.js"
 
 let array = []
-let filterRecipes = []
+export let filterRecipes = []
 
 // Barre de recherche globale
 export function searchBar(e) { 
@@ -15,6 +15,7 @@ export function searchBar(e) {
         container.removeChild(container.lastChild)
     }
     removeListboxList()
+    
       // On détermine si la liste est déjà filtrée ou non
     if(tagContainer == 0) {
       array = recipes
@@ -33,7 +34,7 @@ export function searchBar(e) {
               }
             })
           })
-          filterRecipes =[...new Set(newArray)]       
+          filterRecipes =[...new Set(newArray)]      
           getAllRecipe(filterRecipes)
           creationDesListbox(filterRecipes)
          // Si le champ de recherche est inférieur à 2 et le container est vide

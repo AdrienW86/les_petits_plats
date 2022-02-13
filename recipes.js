@@ -172,7 +172,7 @@ export const recipes = [
                "unit": "cuillères à soupe"
            },
            {
-               "ingredient": "gruyère râpé",
+               "ingredient": "Gruyère râpé",
                "quantity": 100,
                "unit": "grammes"
            },

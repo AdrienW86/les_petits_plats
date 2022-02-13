@@ -1,7 +1,7 @@
 import { recipes } from "../recipes.js"
 import { buildListbox } from "./listbox.js"
 import { getAllRecipe, openArray, closeArray, creationDesListbox } from "./functions.js"
-import { createTag, recetteByTag, removeListboxList } from "./tag.js"
+import { createTag } from "./tag.js"
 import { searchArray, searchBar } from "./search.js"
 
 // On affiche toutes les recettes
@@ -25,24 +25,6 @@ searchArray()
 // Boutons de la listbox
 document.querySelectorAll(".btn-close").forEach(btn => btn.addEventListener("click", closeArray))
 document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
-
-// Vider les recherches incomplètes
-document.querySelectorAll(".find").forEach(input => input.addEventListener("blur", (event) => {   
-      event.target.value ="" 
-      let tagContainer = document.querySelector(".tag-container")
-      while(container.hasChildNodes()) {
-            container.removeChild(container.lastChild)
-      }  
-            if(tagContainer.childNodes.length > 0) {
-                  removeListboxList()
-                  recetteByTag()
-            }else{
-                  removeListboxList()
-                  getAllRecipe(recipes) 
-                  creationDesListbox(recipes)
-            }  
-      document.querySelectorAll(".btn-one-choice").forEach(btn => btn.addEventListener("click", createTag))
-}))
 
 // Barre de recherche
 document.querySelectorAll(".search").forEach(input => input.addEventListener("keyup", searchBar))
